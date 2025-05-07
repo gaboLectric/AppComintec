@@ -1,0 +1,274 @@
+/* General Styles & Font */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa; /* Un gris muy claro para el fondo general */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Login Page Specific Styles */
+.login-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ece9e6 0%, #ffffff 100%); /* Fondo degradado sutil */
+    padding: 1rem;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 420px; /* Ancho máximo del contenedor de login */
+}
+
+.login-box {
+    background-color: #ffffff;
+    padding: 2.5rem; /* Más padding para un look espacioso */
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada pero suave */
+    border: 1px solid #e0e0e0; /* Borde sutil */
+}
+
+.login-logo {
+    font-weight: 700;
+    color: #0d6efd; /* Azul primario de Bootstrap */
+    font-size: 2rem; /* Tamaño del logo */
+}
+
+.login-title {
+    font-weight: 500;
+    color: #343a40; /* Gris oscuro para el título */
+    text-align: center;
+}
+
+.form-control {
+    border-radius: 8px; /* Bordes redondeados para inputs */
+    padding: 0.9rem 1rem; /* Padding interno de inputs */
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus {
+    border-color: #86b7fe; /* Color de borde al enfocar (Bootstrap default) */
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); /* Sombra al enfocar (Bootstrap default) */
+}
+
+.login-btn {
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    border-radius: 8px;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.login-btn:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+.forgot-password-link,
+.new-user-link a {
+    font-size: 0.9rem;
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.forgot-password-link:hover,
+.new-user-link a:hover {
+    text-decoration: underline;
+}
+
+.new-user-link {
+    font-size: 0.9rem;
+    color: #6c757d; /* Gris secundario de Bootstrap */
+}
+
+
+/* Main Page Specific Styles */
+.main-body {
+    padding-top: 70px; /* Ajuste para la navbar fija */
+    background-color: #f4f7f6; /* Un fondo ligeramente diferente para la página principal */
+}
+
+.navbar {
+    background-color: #ffffff !important; /* Fondo blanco para la navbar */
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.main-logo {
+    font-weight: 600;
+    color: #333 !important;
+}
+
+.main-logo .bi {
+    margin-right: 8px;
+    color: #0d6efd;
+}
+
+.nav-link {
+    color: #555 !important; /* Color de enlaces de navegación */
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    border-radius: 6px;
+    margin: 0 0.25rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #0d6efd !important; /* Color al pasar el mouse o activo */
+    background-color: #e9ecef;
+}
+
+.nav-link .bi {
+    margin-right: 6px;
+    vertical-align: text-bottom;
+}
+
+.dropdown-menu {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border: 1px solid #e0e0e0;
+}
+
+.dropdown-item {
+    font-weight: 400;
+    color: #333;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+    color: #0d6efd;
+}
+
+.main-content-area {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem; /* Espacio para el footer simulado */
+}
+
+.main-content-area .h2 {
+    color: #343a40;
+    font-weight: 500;
+}
+
+/* Calendar Styles */
+.calendar-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    border: none;
+}
+
+.calendar-header {
+    background-color: #f8f9fa; /* Fondo claro para el header del calendario */
+    border-bottom: 1px solid #e9ecef;
+    padding: 0.75rem 1rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.calendar-title {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.calendar-table {
+    border-radius: 0 0 10px 10px; /* Redondear esquinas inferiores */
+    overflow: hidden; /* Para que el borde redondeado se aplique a la tabla */
+}
+
+.calendar-table th, .calendar-table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.8rem 0.5rem; /* Padding ajustado para celdas */
+    font-size: 0.9rem;
+    border: 1px solid #e9ecef; /* Bordes más sutiles */
+}
+
+.calendar-table thead th {
+    background-color: #f1f3f5; /* Fondo para los días de la semana */
+    color: #555;
+    font-weight: 500;
+    border-top: none; /* Quitar borde superior de los encabezados */
+}
+.calendar-table tbody td:first-child { border-left: none; } /* Quitar borde izquierdo de la primera celda */
+.calendar-table tbody td:last-child { border-right: none; } /* Quitar borde derecho de la última celda */
+.calendar-table tbody tr:last-child td { border-bottom: none; } /* Quitar borde inferior de la última fila */
+
+
+.calendar-table .today {
+    background-color: #0d6efd;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%; /* Círculo para el día actual */
+    border-color: #0d6efd;
+}
+
+/* Info Card Styles */
+.info-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    border: none;
+    background-color: #ffffff;
+}
+.info-card .card-title .bi {
+    margin-right: 8px;
+    color: #0d6efd;
+}
+.info-card .list-group-item {
+    border-left: none;
+    border-right: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+.info-card .list-group-item a {
+    color: #333;
+    font-weight: 500;
+}
+.info-card .list-group-item a:hover {
+    color: #0d6efd;
+}
+.info-card .list-group-item .bi {
+    margin-right: 10px;
+    color: #6c757d; /* Iconos grises */
+}
+.info-card .list-group-item a:hover .bi {
+    color: #0d6efd; /* Iconos azules al pasar el mouse sobre el enlace */
+}
+
+
+/* User Info Footer Styles */
+.user-info-footer {
+    font-size: 0.85rem;
+    color: #6c757d; /* Texto gris para el footer */
+    background-color: #ffffff !important; /* Fondo blanco */
+    border-top: 1px solid #e0e0e0 !important;
+}
+
+.user-info-footer strong {
+    color: #495057; /* Texto un poco más oscuro para las etiquetas */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .login-box {
+        padding: 2rem;
+    }
+    .main-content-area {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .user-info-footer .row > div {
+        text-align: center; /* Centrar texto del footer en móviles */
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .login-title {
+        font-size: 1.5rem;
+    }
+    .login-logo {
+        font-size: 1.8rem;
+    }
+}
