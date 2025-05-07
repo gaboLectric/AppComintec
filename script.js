@@ -170,3 +170,18 @@ document.addEventListener('DOMContentLoaded', function () {
     // displaySalesForDay(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
     clearSalesData(); // Start with no day selected
 });
+
+// Work Chain Tabs Logic
+document.querySelectorAll('.tab-button').forEach(button => {
+    button.addEventListener('click', function() {
+        // Deactivate all tabs and buttons
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+        // Activate the clicked button and its corresponding tab
+        this.classList.add('active');
+        const tabId = this.dataset.tab;
+        document.getElementById(tabId).classList.add('active');
+    });
+});
+
