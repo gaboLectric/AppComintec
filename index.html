@@ -13,7 +13,7 @@ z<!DOCTYPE html>
         </div>
         <nav>
             <ul>
-                <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#" class="active"><i class="fas fa-home"></i> Panel de Control</a></li>
 
                 <li class="dropdown"><a href="#"><i class="fas fa-chart-bar"></i> Ventas</a>
                     <ul class="dropdown-menu">
@@ -28,7 +28,18 @@ z<!DOCTYPE html>
 
                 <li><a href="#"><i class="fas fa-box"></i> Inventario</a></li>
 
-                <li><a href="#"><i class="fas fa-sliders-h"></i> Administración</a></li>
+ <li class="dropdown"><a href="#"><i class="fas fa-sliders-h"></i> Administración</a>
+ <ul class="dropdown-menu">
+ <li><a href="#">Solicitud de Viaticos</a></li>
+ <li><a href="solicitud_material.html">Solicitud de Material</a></li>
+ <li><a href="#">Solicitud de Tiempo</a></li>
+ <li><a href="#">Solicitud de Material</a></li>
+ <li><a href="#">Solicitud de Paqueteria</a></li>
+ <li><a href="#">Asigna Numero Fiscal</a></li>
+ <li><a href="#">Mis Solicitudes</a></li>
+ <li><a href="#">Contratos Repse</a></li>
+ </ul>
+ </li>
 
                 <li><a href="#"><i class="fas fa-shopping-cart"></i> Compras</a></li>
 
@@ -38,9 +49,9 @@ z<!DOCTYPE html>
 
                 <li><a href="#"><i class="fas fa-file-alt"></i> Informes</a></li>
 
-                <li><a href="#"><i class="fas fa-laptop-code"></i> Sistemas</a></li>
+                <li><a href="#"><i class="fas fa-laptop-code"></i> Sistemas</a></li> <!-- Assuming "Sistemas" is the correct Spanish term for Systems -->
 
-                <li><a href="#"><i class="fas fa-bullhorn"></i> Marketing</a></li>
+                <li><a href="#"><i class="fas fa-bullhorn"></i> Marketing</a></li> <!-- Assuming "Marketing" is commonly used in Spanish context, otherwise "Mercadotecnia" could be an alternative -->
 
                 <li><a href="#"><i class="fas fa-check-circle"></i> Calidad</a></li>
 
@@ -52,7 +63,7 @@ z<!DOCTYPE html>
     </div>
     <div class="main-content">
         <header>
-            <h1>Dashboard</h1>
+            <h1>Panel de Control</h1>
             <div class="user-profile">
                 <img src="profile.png" alt="User Profile" onerror="this.style.display='none'; this.onerror=null; const i = document.createElement('i'); i.className='fas fa-user-circle fa-2x'; this.parentNode.insertBefore(i, this.nextSibling);">
                 <span>Nombre Usuario</span>
@@ -61,7 +72,7 @@ z<!DOCTYPE html>
         <main>
             <section class="summary-cards">
                 <div class="card">
-                    <h4>Ventas Hoy</h4>
+                    <h4>Ventas de Hoy</h4>
                     <p>1,234 MXN</p>
                 </div>
                 <div class="card">
@@ -100,8 +111,8 @@ z<!DOCTYPE html>
                 <div class="recent-activity">
                      <h4>Actividad Reciente</h4>
                      <ul>
-                        <li>Usuario X completó tarea Y.</li>
-                        <li>Nueva venta registrada: #12345.</li>
+                        <li>Usuario X completó la tarea Y.</li>
+                        <li>Nueva venta registrada: #12345.</li> <!-- Assuming #12345 is an ID and doesn't need translation -->
                      </ul>
                 </div>
             </section>
@@ -115,43 +126,43 @@ z<!DOCTYPE html>
                     <div class="workchain-steps">
                         <div class="step" data-step="1">
                             <div class="indicator" data-status="pending"></div>
-                            <span class="step-label">Step 1: Raw Materials</span>
+                            <span class="step-label">Paso 1: Materias Primas</span>
                         </div>
                         <div class="connector"></div>
                         <div class="step" data-step="2">
                             <div class="indicator" data-status="pending"></div>
-                            <span class="step-label">Step 2: Manufacturing</span>
+                            <span class="step-label">Paso 2: Fabricación</span>
                         </div>
                         <div class="connector"></div>
                         <div class="step" data-step="3">
                             <div class="indicator" data-status="pending"></div>
-                            <span class="step-label">Step 3: Distribution</span>
+                            <span class="step-label">Paso 3: Distribución</span>
                         </div>
                         <div class="connector"></div>
                         <div class="step" data-step="4">
                             <div class="indicator" data-status="pending"></div>
-                            <span class="step-label">Step 4: Delivery</span>
+                            <span class="step-label">Paso 4: Entrega</span>
                         </div>
                         <div class="connector"></div>
                         <div class="step" data-step="5">
                             <div class="indicator" data-status="pending"></div>
-                            <span class="step-label">Step 5: Customer</span>
+                            <span class="step-label">Paso 5: Cliente</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="workchain-controls">
-                    <h4>Update Step Status</h4>
-                    <label for="select-step">Select Step:</label>
+                    <h4>Actualizar Estado del Paso</h4>
+                    <label for="select-step">Seleccionar Paso:</label>
                     <select id="select-step">
-                        <option value="1">Step 1: Raw Materials</option>
-                        <option value="2">Step 2: Manufacturing</option>
-                        <option value="3">Step 3: Distribution</option>
-                        <option value="4">Step 4: Delivery</option>
-                        <option value="5">Step 5: Customer</option>
+                        <option value="1">Paso 1: Materias Primas</option>
+                        <option value="2">Paso 2: Fabricación</option>
+                        <option value="3">Paso 3: Distribución</option>
+                        <option value="4">Paso 4: Entrega</option>
+                        <option value="5">Paso 5: Cliente</option>
                     </select>
 
-                    <label for="select-status">Select Status:</label>
+                    <label for="select-status">Seleccionar Estado:</label>
                     <select id="select-status">
                         <option value="pending">Pending</option>
                         <option value="in-progress">In Progress</option>
@@ -162,16 +173,16 @@ z<!DOCTYPE html>
                     </div>
                     <div id="completed" class="tab-content">
                       <ul>
-                        <li>Task 3 - Status: Done</li>
-                        <li>Task 4 - Status: Done</li>
+                        <li>Tarea 3 - Estado: Completado</li>
+                        <li>Tarea 4 - Estado: Completado</li>
                       </ul>
                     </div>
                     <div id="history" class="tab-content">
                       <ul>
-                        <li>Task 5 - Date: 2024-01-01 - Status: Done</li>
-                        <li>Task 6 - Date: 2024-01-02 - Status: Done</li>
+                        <li>Tarea 5 - Fecha: 2024-01-01 - Estado: Completado</li>
+                        <li>Tarea 6 - Fecha: 2024-01-02 - Estado: Completado</li>
                       </ul>
- <button id="download-sales-button">Download Sales Data</button>
+ <button id="download-sales-button">Descargar Datos de Ventas</button>
                     </div></section>
 
             <section id="sales-details-section">
@@ -195,7 +206,7 @@ z<!DOCTYPE html>
                     </thead>
                     <tbody id="sales-table-body">
                         <tr>
-                            <td colspan="6" style="text-align:center;">Seleccione un día para ver las ventas.</td>
+                            <td colspan="6" style="text-align:center;">Seleccione un día para ver las ventas.</td> <!-- This text should remain in Spanish as it is user-facing -->
                         </tr>
                     </tbody>
                 </table>
