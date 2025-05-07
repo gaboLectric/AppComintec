@@ -106,46 +106,59 @@ z<!DOCTYPE html>
                 </div>
             </section>
 
-            <section id="work-chain">
-                <h3>Work Chain</h3>
-                <div class="work-chain-container">
-                    <div class="work-chain-tabs">
-                      <button class="tab-button active" data-tab="pending">Pending</button>
-                      <button class="tab-button" data-tab="completed">Completed</button>
-                      <button class="tab-button" data-tab="history">History</button>
+            <section class="workchain-section">
+                <h3>Work Chain / Supply Chain</h3>
+                <div class="workchain-visualizer">
+                    <div class="workchain-progress-bar">
+                        <div class="progress-fill" style="width: 0%;"></div>
                     </div>
-                    <div id="pending" class="tab-content active">
-                      <ul>
-                        <li>Task 1 - Status: In Progress</li>
-                        <li>Task 2 - Status: Pending</li>
-                      </ul>
- <form id="work-chain-form">
- <div>
- <label for="task-description">Descripción de la Tarea:</label>
- <input type="text" id="task-description" name="task-description" required>
- </div>
- <div>
- <label for="task-area">Área:</label>
- <select id="task-area" name="task-area" required>
- <option value="">Seleccione un área</option>
- <option value="sales">Ventas</option>
- <option value="inventory">Inventario</option>
- <option value="administration">Administración</option>
- <option value="service">Servicio</option>
- <option value="metrology">Metrología</option>
- <option value="reports">Informes</option>
- <option value="systems">Sistemas</option>
- <option value="marketing">Marketing</option>
- <option value="quality">Calidad</option>
- <option value="customers">Clientes</option>
- </select>
- </div>
- <div>
- <label for="task-file">Subir Archivo:</label>
- <input type="file" id="task-file" name="task-file">
- </div>
- <button type="submit">Submit</button>
- </form>
+                    <div class="workchain-steps">
+                        <div class="step" data-step="1">
+                            <div class="indicator" data-status="pending"></div>
+                            <span class="step-label">Step 1: Raw Materials</span>
+                        </div>
+                        <div class="connector"></div>
+                        <div class="step" data-step="2">
+                            <div class="indicator" data-status="pending"></div>
+                            <span class="step-label">Step 2: Manufacturing</span>
+                        </div>
+                        <div class="connector"></div>
+                        <div class="step" data-step="3">
+                            <div class="indicator" data-status="pending"></div>
+                            <span class="step-label">Step 3: Distribution</span>
+                        </div>
+                        <div class="connector"></div>
+                        <div class="step" data-step="4">
+                            <div class="indicator" data-status="pending"></div>
+                            <span class="step-label">Step 4: Delivery</span>
+                        </div>
+                        <div class="connector"></div>
+                        <div class="step" data-step="5">
+                            <div class="indicator" data-status="pending"></div>
+                            <span class="step-label">Step 5: Customer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workchain-controls">
+                    <h4>Update Step Status</h4>
+                    <label for="select-step">Select Step:</label>
+                    <select id="select-step">
+                        <option value="1">Step 1: Raw Materials</option>
+                        <option value="2">Step 2: Manufacturing</option>
+                        <option value="3">Step 3: Distribution</option>
+                        <option value="4">Step 4: Delivery</option>
+                        <option value="5">Step 5: Customer</option>
+                    </select>
+
+                    <label for="select-status">Select Status:</label>
+                    <select id="select-status">
+                        <option value="pending">Pending</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                        <option value="issue">Issue</option>
+                    </select>
+                    <button id="update-status-button">Update Status</button>
                     </div>
                     <div id="completed" class="tab-content">
                       <ul>
@@ -159,9 +172,7 @@ z<!DOCTYPE html>
                         <li>Task 6 - Date: 2024-01-02 - Status: Done</li>
                       </ul>
  <button id="download-sales-button">Download Sales Data</button>
-                    </div>
-                  </div>
-            </section>
+                    </div></section>
 
             <section id="sales-details-section">
                 <h3 id="selected-day-heading">Ventas del Día: --</h3>
