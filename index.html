@@ -15,7 +15,16 @@ z<!DOCTYPE html>
             <ul>
                 <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
 
-                <li><a href="#"><i class="fas fa-chart-bar"></i> Ventas</a></li>
+                <li class="dropdown"><a href="#"><i class="fas fa-chart-bar"></i> Ventas</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Agregar Cliente</a></li>
+                        <li><a href="#">Mis Clientes</a></li>
+                        <li><a href="#">Borrador de Cotizacion</a></li>
+                        <li><a href="#">Existencias de Productos</a></li>
+                        <li><a href="#">Asignacion de Clientes</a></li>
+                        <li><a href="#">Fichas Tecnicas</a></li>
+                    </ul>
+                </li>
 
                 <li><a href="#"><i class="fas fa-box"></i> Inventario</a></li>
 
@@ -110,6 +119,33 @@ z<!DOCTYPE html>
                         <li>Task 1 - Status: In Progress</li>
                         <li>Task 2 - Status: Pending</li>
                       </ul>
+ <form id="work-chain-form">
+ <div>
+ <label for="task-description">Descripción de la Tarea:</label>
+ <input type="text" id="task-description" name="task-description" required>
+ </div>
+ <div>
+ <label for="task-area">Área:</label>
+ <select id="task-area" name="task-area" required>
+ <option value="">Seleccione un área</option>
+ <option value="sales">Ventas</option>
+ <option value="inventory">Inventario</option>
+ <option value="administration">Administración</option>
+ <option value="service">Servicio</option>
+ <option value="metrology">Metrología</option>
+ <option value="reports">Informes</option>
+ <option value="systems">Sistemas</option>
+ <option value="marketing">Marketing</option>
+ <option value="quality">Calidad</option>
+ <option value="customers">Clientes</option>
+ </select>
+ </div>
+ <div>
+ <label for="task-file">Subir Archivo:</label>
+ <input type="file" id="task-file" name="task-file">
+ </div>
+ <button type="submit">Submit</button>
+ </form>
                     </div>
                     <div id="completed" class="tab-content">
                       <ul>
@@ -122,6 +158,7 @@ z<!DOCTYPE html>
                         <li>Task 5 - Date: 2024-01-01 - Status: Done</li>
                         <li>Task 6 - Date: 2024-01-02 - Status: Done</li>
                       </ul>
+ <button id="download-sales-button">Download Sales Data</button>
                     </div>
                   </div>
             </section>

@@ -185,3 +185,11 @@ document.querySelectorAll('.tab-button').forEach(button => {
     });
 });
 
+// Download Sales Data Logic
+const downloadSalesButton = document.getElementById('download-sales-button');
+
+downloadSalesButton.addEventListener('click', function() {
+    console.log("Downloading sales data...");
+    // Future implementation for data download will go here
+});
+

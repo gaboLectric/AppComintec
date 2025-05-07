@@ -348,3 +348,69 @@ body {
 .tab-content li {
   margin-bottom: 10px;
 }
+
+#work-chain-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+#work-chain-form label {
+  font-weight: bold;
+}
+
+#work-chain-form input[type="text"], #work-chain-form select, #work-chain-form input[type="file"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#work-chain-form button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#work-chain-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+#download-sales-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px
+}
+
+#download-sales-button:hover {
+  background-color: #218838;
+}
+
+
+/* Dropdown styles for the Ventas menu */
+.sidebar ul li.dropdown ul {
+    display: none;
+    position: static;
+    width: 100%;
+}
+
+.sidebar ul li.dropdown:hover ul {
+    display: block;
+}
+
+.sidebar ul li.dropdown ul li {
+    padding-left: 30px;
+}
+
+.sidebar ul li.dropdown ul li a{
+  color: #fff;
+}
+
+
