@@ -47,15 +47,26 @@
         textarea {
             resize: vertical; /* Allow vertical resizing */
             min-height: 100px;
+        }        
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
         }
-        button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #5cb85c;
+        .button-group button {
+            width: 48%; /* Adjust width as needed */
+            padding: 10px;            
             color: white;
             border: none;
             border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .button-group .enviar-button {
+            background-color: #5cb85c;
+        }
+        .button-group .salir-button {
+            background-color: #d9534f;
             font-size: 16px;
             cursor: pointer;
         }
