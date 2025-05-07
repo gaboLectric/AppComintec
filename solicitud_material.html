@@ -38,6 +38,12 @@
             border-radius: 4px;
             box-sizing: border-box; /* Include padding and border in element's total width and height */
         }
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
         textarea {
             resize: vertical; /* Allow vertical resizing */
             min-height: 100px;
@@ -71,11 +77,20 @@
         <div class="form-group">
             <label for="fecha">Fecha:</label>
             <input type="date" id="fecha" name="fecha" required>
+            <script>
+                document.getElementById('fecha').valueAsDate = new Date();
+            </script>
         </div>
 
         <div class="form-group">
             <label for="empresa">Empresa que solicita:</label>
-            <input type="text" id="empresa" name="empresa" required>
+            <select id="empresa" name="empresa" required>
+                <option value="">Seleccione una empresa</option>
+                <option value="COM IN TEC DE MÉXICO S.A. DE C.V.">COM IN TEC DE MÉXICO S.A. DE C.V.</option>
+                <option value="METROLOGICAL COM IN TEC SERVICES S.C.">METROLOGICAL COM IN TEC SERVICES S.C.</option>
+                <option value="TECNOLOGÍAS COMINTEC GUADALAJARA">TECNOLOGÍAS COMINTEC GUADALAJARA</option>
+                <option value="COM INSTRUMENTACION Y TECNOLOGIA S.A. DE C.V.">COM INSTRUMENTACION Y TECNOLOGIA S.A. DE C.V.</option>
+            </select>
         </div>
 
         <div class="form-group">
