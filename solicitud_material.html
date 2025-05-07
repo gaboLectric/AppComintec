@@ -119,11 +119,52 @@
         </div>
 
         <div class="form-group">
+            <label for="tipo_material">Tipo de Material:</label>
+            <select id="tipo_material" name="tipo_material" required>
+                <option value="">Seleccione el tipo de material</option>
+                <option value="Uniformes">Uniformes</option>
+                <option value="Equipo de proteccion personal">Equipo de proteccion personal</option>
+                <option value="Herramientas">Herramientas</option>
+                <option value="Equipo de cómputo">Equipo de cómputo</option>
+                <option value="Mobiliario y equipo de oficina">Mobiliario y equipo de oficina</option>
+                <option value="Materiales de referencia">Materiales de referencia</option>
+                <option value="Maquinaria y equipo">Maquinaria y equipo</option>
+                <option value="Equipo de transporte">Equipo de transporte</option>
+                <option value="Papeleria y artículos higienicos">Papeleria y artículos higienicos</option>
+                <option value="Refacciones para habilitar equipos de propiedad de COMINTEC">Refacciones para habilitar equipos de propiedad de COMINTEC</option>
+                <option value="Refacciones para habilitar equipos de transporte">Refacciones para habilitar equipos de transporte</option>
+                <option value="Reposición de demás materiales dañados">Reposición de demás materiales dañados</option>
+                <option value="Otros">Otros</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="proveedor_sugerido">Proveedor Sugerido:</label>
+            <input type="text" id="proveedor_sugerido" name="proveedor_sugerido">
+        </div>
+
+        <div class="form-group">
+            <label for="nota">Nota:</label>
+            <textarea id="nota" name="nota"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo">
+        </div>
+
+        <div class="form-group">
+            <label for="marca">Marca:</label>
+            <input type="text" id="marca" name="marca">
+        </div>
+
+        <div class="form-group">
             <label for="especificaciones">Especificaciones:</label>
             <textarea id="especificaciones" name="especificaciones"></textarea>
         </div>
 
         <button type="submit">Enviar Solicitud</button>
+        <button type="button" onclick="history.back()">Salir</button>
     </form>
 
 </body>
