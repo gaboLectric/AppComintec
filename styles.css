@@ -13,7 +13,9 @@ body {
 }
 
 .main-content {
-    padding: 1.5rem;
+    padding-top: 4rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
@@ -507,15 +509,25 @@ body {
 
 /* Header/Navigation styles */
 header {
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 0.75rem 1.5rem;
     height: 3.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+header:hover {
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .logo {
@@ -572,7 +584,9 @@ nav ul li a:hover {
 }
 
 .dropdown-menu {
-    background-color: rgba(255, 255, 255, 0.98);
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -744,6 +758,32 @@ h1, h2, h3, h4, h5, h6 {
 .calendar-section-header .current-date {
     font-weight: 500;
     color: #374151;
+}
+
+/* Workchain Section Styles */
+.workchain-section {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+}
+
+.workchain-section header {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.workchain-section header h1 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 0.5rem;
+}
+
+.workchain-section header p {
+    font-size: 1rem;
+    color: #6b7280;
+    margin: 0;
 }
 
 
