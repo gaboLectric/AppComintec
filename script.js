@@ -193,3 +193,27 @@ downloadSalesButton.addEventListener('click', function() {
     // Future implementation for data download will go here
 });
 
+// --- Lógica para menús desplegables en la barra de navegación ---
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('mouseenter', function() {
+            const menu = this.querySelector('.dropdown-menu');
+            if (menu) {
+                menu.classList.remove('hidden');
+                menu.classList.add('block'); // Usa block para mostrarlo
+            }
+        });
+
+        dropdown.addEventListener('mouseleave', function() {
+            const menu = this.querySelector('.dropdown-menu');
+            if (menu) {
+                menu.classList.add('hidden');
+                menu.classList.remove('block'); // Remueve block
+            }
+        });
+    });
+
+});
+
