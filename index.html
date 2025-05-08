@@ -8,7 +8,7 @@ z<!DOCTYPE html>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <header class="bg-gray-800 text-white p-4 flex justify-between items-center">
+ <header class="bg-gray-800 text-white p-4 flex justify-between items-center sticky top-0 z-50">
         <div class="flex items-center">
             <div class="logo mr-4">
             <img src="logo.png" alt="Comintec Logo" class="img-fluid" onerror="this.style.display='none'; this.onerror=null; const p = document.createElement('p'); p.textContent='Logo'; this.parentNode.appendChild(p);">
@@ -19,7 +19,7 @@ z<!DOCTYPE html>
 
                     <li class="dropdown relative">
                         <a href="#" class="hover:text-gray-300"><i class="fas fa-chart-bar"></i> Ventas</a>
-                        <ul class="dropdown-menu absolute hidden bg-gray-700 text-white mt-2 py-2 rounded shadow-lg">
+ <ul class="dropdown-menu absolute hidden bg-gray-700 text-white mt-2 py-2 rounded shadow-lg w-48">
                             <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Agregar Cliente</a></li>
                             <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Mis Clientes</a></li>
                             <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Borrador de Cotizacion</a></li>
@@ -34,7 +34,7 @@ z<!DOCTYPE html>
 
                     <li class="dropdown relative">
                         <a href="#" class="hover:text-gray-300"><i class="fas fa-sliders-h"></i> Administración</a>
-                        <ul class="dropdown-menu absolute hidden bg-gray-700 text-white mt-2 py-2 rounded shadow-lg">
+ <ul class="dropdown-menu absolute hidden bg-gray-700 text-white mt-2 py-2 rounded shadow-lg w-48">
                             <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Solicitud de Viaticos</a></li>
                             <li><a href="solicitud_material.html" class="block px-4 py-2 hover:bg-gray-600">Solicitud de Material</a></li>
                             <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Solicitud de Tiempo</a></li>
@@ -73,13 +73,7 @@ z<!DOCTYPE html>
             <span>Nombre Usuario</span>
         </div>
     </header>
-    <div class="main-content p-4">
-        <main>
-            <section class="summary-cards">
-                <div class="card">
-                    <h4>Ventas de Hoy</h4>
-                    <p>1,234 MXN</p>
-                </div>
+    <div class="main-content p-4 pt-24"> <!-- Added padding-top to account for fixed header -->
                 <div class="card">
                     <h4>Nuevos Clientes</h4>
                     <p>5</p>
@@ -88,6 +82,7 @@ z<!DOCTYPE html>
                     <h4>Tareas Pendientes</h4>
                     <p>3</p>
                 </div>
+ <main>
             </section>
 
             <section class="main-data">
@@ -219,15 +214,31 @@ z<!DOCTYPE html>
         </main>
     </div>
     <script src="script.js"></script>
+    <!-- JavaScript for dropdowns on click -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const dropdowns = document.querySelectorAll('.dropdown');
 
             dropdowns.forEach(dropdown => {
-                dropdown.addEventListener('mouseenter', function () {
-                    this.querySelector('.dropdown-menu').classList.remove('hidden');
+                const dropdownToggle = dropdown.querySelector('a');
+                const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+
+ dropdownToggle.addEventListener('click', function(e) {
+ e.preventDefault(); // Prevent default link behavior
+ dropdownMenu.classList.toggle('hidden');
                 });
-                dropdown.addEventListener('mouseleave', function () {
+
+ document.addEventListener('click', function(e) {
+ if (!dropdown.contains(e.target)) {
+ dropdownMenu.classList.add('hidden');
+                }
+            });
+        });
+
+ // Optional: Close dropdowns when clicking outside
+ document.addEventListener('click', function(e) {
+ if (!e.target.closest('.dropdown')) {
+ document.querySelectorAll('.dropdown-menu').forEach(menu => {
                     this.querySelector('.dropdown-menu').classList.add('hidden');
                 });
             });
