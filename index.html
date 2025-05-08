@@ -238,8 +238,15 @@ z<!DOCTYPE html>
 
         // Close dropdowns when clicking outside
         document.addEventListener('click', function(e) {
- if (!dropdown.contains(e.target)) {
-                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            // Check if the clicked target is within any dropdown
+            let clickedInsideDropdown = false;
+            dropdowns.forEach(dropdown => {
+                if (dropdown.contains(e.target)) {
+                    clickedInsideDropdown = true;
+                }
+            });
+            if (!clickedInsideDropdown) {
+                document.querySelectorAll('.dropdown-menu').forEach(menu => { // Hide all dropdown menus
                     menu.classList.add('hidden');
                 });
             }
