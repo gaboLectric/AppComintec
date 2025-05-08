@@ -5,62 +5,71 @@ z<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AppComintec - Dashboard</title>
     <link rel="stylesheet" href="styles.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="logo p-3 d-flex justify-content-center align-items-center">
+    <header class="bg-gray-800 text-white p-4 flex justify-between items-center">
+        <div class="flex items-center">
+            <div class="logo mr-4">
             <img src="logo.png" alt="Comintec Logo" class="img-fluid" onerror="this.style.display='none'; this.onerror=null; const p = document.createElement('p'); p.textContent='Logo'; this.parentNode.appendChild(p);">
+            </div>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="hover:text-gray-300 active"><i class="fas fa-home"></i> Panel de Control</a></li>
+
+                    <li class="dropdown relative">
+                        <a href="#" class="hover:text-gray-300"><i class="fas fa-chart-bar"></i> Ventas</a>
+                        <ul class="dropdown-menu absolute hidden bg-gray-700 text-white mt-2 py-2 rounded shadow-lg">
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Agregar Cliente</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Mis Clientes</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Borrador de Cotizacion</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Existencias de Productos</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Asignacion de Clientes</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Fichas Tecnicas</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-box"></i> Inventario</a></li>
+
+                    <li class="dropdown relative">
+                        <a href="#" class="hover:text-gray-300"><i class="fas fa-sliders-h"></i> Administración</a>
+                        <ul class="dropdown-menu absolute hidden bg-gray-700 text-white mt-2 py-2 rounded shadow-lg">
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Solicitud de Viaticos</a></li>
+                            <li><a href="solicitud_material.html" class="block px-4 py-2 hover:bg-gray-600">Solicitud de Material</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Solicitud de Tiempo</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Solicitud de Material</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Solicitud de Paqueteria</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Asigna Numero Fiscal</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Mis Solicitudes</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Contratos Repse</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-shopping-cart"></i> Compras</a></li>
+
+                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-tools"></i> Servicio</a></li>
+
+                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-balance-scale"></i> Metrología</a></li>
+
+                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-file-alt"></i> Informes</a></li>
+
+                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-laptop-code"></i> Sistemas</a></li> <!-- Assuming "Sistemas" is the correct Spanish term for Systems -->
+
+                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-bullhorn"></i> Marketing</a></li> <!-- Assuming "Marketing" is commonly used in Spanish context, otherwise "Mercadotecnia" could be an alternative -->
+
+                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-check-circle"></i> Calidad</a></li>
+
+                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-users"></i> Clientes</a></li>
+
+                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-cog"></i> Configuración</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#" class="active"><i class="fas fa-home"></i> Panel de Control</a></li>
-
-                <li class="dropdown"><a href="#"><i class="fas fa-chart-bar"></i> Ventas</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Agregar Cliente</a></li>
-                        <li><a href="#">Mis Clientes</a></li>
-                        <li><a href="#">Borrador de Cotizacion</a></li>
-                        <li><a href="#">Existencias de Productos</a></li>
-                        <li><a href="#">Asignacion de Clientes</a></li>
-                        <li><a href="#">Fichas Tecnicas</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#"><i class="fas fa-box"></i> Inventario</a></li>
-
- <li class="dropdown"><a href="#"><i class="fas fa-sliders-h"></i> Administración</a>
- <ul class="dropdown-menu">
- <li><a href="#">Solicitud de Viaticos</a></li>
- <li><a href="solicitud_material.html">Solicitud de Material</a></li>
- <li><a href="#">Solicitud de Tiempo</a></li>
- <li><a href="#">Solicitud de Material</a></li>
- <li><a href="#">Solicitud de Paqueteria</a></li>
- <li><a href="#">Asigna Numero Fiscal</a></li>
- <li><a href="#">Mis Solicitudes</a></li>
- <li><a href="#">Contratos Repse</a></li>
- </ul>
- </li>
-
-                <li><a href="#"><i class="fas fa-shopping-cart"></i> Compras</a></li>
-
-                <li><a href="#"><i class="fas fa-tools"></i> Servicio</a></li>
-
-                <li><a href="#"><i class="fas fa-balance-scale"></i> Metrología</a></li>
-
-                <li><a href="#"><i class="fas fa-file-alt"></i> Informes</a></li>
-
-                <li><a href="#"><i class="fas fa-laptop-code"></i> Sistemas</a></li> <!-- Assuming "Sistemas" is the correct Spanish term for Systems -->
-
-                <li><a href="#"><i class="fas fa-bullhorn"></i> Marketing</a></li> <!-- Assuming "Marketing" is commonly used in Spanish context, otherwise "Mercadotecnia" could be an alternative -->
-
-                <li><a href="#"><i class="fas fa-check-circle"></i> Calidad</a></li>
-
-                <li><a href="#"><i class="fas fa-users"></i> Clientes</a></li>
-
-                <li><a href="#"><i class="fas fa-cog"></i> Configuración</a></li>
-            </ul>
-        </nav>
-    </div>
+        <div class="user-profile flex items-center space-x-2">
+            <img src="profile.png" alt="User Profile" class="rounded-full h-8 w-8" onerror="this.style.display='none'; this.onerror=null; const i = document.createElement('i'); i.className='fas fa-user-circle fa-2x'; this.parentNode.insertBefore(i, this.nextSibling);">
+            <span>Nombre Usuario</span>
+        </div>
+    </header>
     <div class="main-content">
         <header>
             <h1>Panel de Control</h1>
