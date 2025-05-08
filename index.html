@@ -8,12 +8,18 @@
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> <link rel="stylesheet" href="comintec-app.css">
  <link rel="stylesheet" href="estilos-comintec.css">
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <style>
+    .navbar-logo-small {
+        max-height: 40px; /* Adjust this value as needed */
+        width: auto; /* Maintain aspect ratio */
+    }
+ </style>
 </head>
 <body>
  <nav class="navbar navbar-expand-lg navbar-light bg-light">
  <div class="container-fluid">
  <a class="navbar-brand" href="#">
- <img src="logo.png" alt="Comintec Logo" class="img-fluid" onerror="this.style.display='none'; this.onerror=null; const p = document.createElement('p'); p.textContent='Logo'; this.parentNode.appendChild(p);">
+ <img src="logo.png" alt="Comintec Logo" class="img-fluid navbar-logo-small" onerror="this.style.display='none'; this.onerror=null; const p = document.createElement('p'); p.textContent='Logo'; this.parentNode.appendChild(p);">
  </a>
  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
  <span class="navbar-toggler-icon"></span>
@@ -63,113 +69,64 @@
             <img src="profile.png" alt="User Profile" class="rounded-full" onerror="this.style.display='none'; this.onerror=null; const i = document.createElement('i'); i.className='bi bi-person-circle h2'; this.parentNode.insertBefore(i, this.nextSibling);">
             <span>Nombre Usuario</span>
         </div>
-    </header>
-    <!-- Old Header structure preserved for comparison, will be removed later -->
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <div class="logo">
-                <img src="logo.png" alt="Comintec Logo" class="img-fluid" onerror="this.style.display='none'; this.onerror=null; const p = document.createElement('p'); p.textContent='Logo'; this.parentNode.appendChild(p);">
-            </div>
-            <nav> -->
-                <ul>
-                    <li><a href="#"><i class="fas fa-home"></i> Panel de Control</a></li>
-                    <li class="dropdown relative">
-                        <a href="#"><i class="fas fa-chart-bar"></i> Ventas</a>
-                        <ul class="dropdown-menu absolute hidden mt-2 py-2 rounded shadow-lg w-48">
-                            <li><a href="#">Agregar Cliente</a></li>
-                            <li><a href="#">Mis Clientes</a></li>
-                            <li><a href="#">Borrador de Cotizacion</a></li>
-                            <li><a href="#">Existencias de Productos</a></li>
-                            <li><a href="#">Asignacion de Clientes</a></li>
-                            <li><a href="#">Fichas Tecnicas</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><i class="fas fa-box"></i> Inventario</a></li>
-                    <li class="dropdown relative">
-                        <a href="#"><i class="fas fa-sliders-h"></i> Administración</a>
-                        <ul class="dropdown-menu absolute hidden mt-2 py-2 rounded shadow-lg w-48">
-                            <li><a href="#">Solicitud de Viaticos</a></li>
-                            <li><a href="solicitud_material.html">Solicitud de Material</a></li>
-                            <li><a href="#">Solicitud de Tiempo</a></li>
-                            <li><a href="#">Solicitud de Material</a></li>
-                            <li><a href="#">Solicitud de Paqueteria</a></li>
-                            <li><a href="#">Asigna Numero Fiscal</a></li>
-                            <li><a href="#">Mis Solicitudes</a></li>
-                            <li><a href="#">Contratos Repse</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><i class="fas fa-shopping-cart"></i> Compras</a></li>
-                    <li><a href="#"><i class="fas fa-tools"></i> Servicio</a></li>
-                    <li><a href="#"><i class="fas fa-balance-scale"></i> Metrología</a></li>
-                    <li><a href="#"><i class="fas fa-file-alt"></i> Informes</a></li>
-                    <li><a href="#"><i class="fas fa-laptop-code"></i> Sistemas</a></li>
-                    <li><a href="#"><i class="fas fa-bullhorn"></i> Marketing</a></li>
-                    <li><a href="#"><i class="fas fa-check-circle"></i> Calidad</a></li>
-                    <li><a href="#"><i class="fas fa-users"></i> Clientes</a></li>
-                    <li><a href="#"><i class="fas fa-cog"></i> Configuración</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="user-profile">
-            <img src="profile.png" alt="User Profile" class="rounded-full" onerror="this.style.display='none'; this.onerror=null; const i = document.createElement('i'); i.className='fas fa-user-circle fa-2x'; this.parentNode.insertBefore(i, this.nextSibling);">
-            <span>Nombre Usuario</span>
-        </div>
     </nav>
- -->
-    <div class="main-content">
-        <div class="dashboard-grid">
-            <div class="comintec-card">
-                <h4>Nuevos Clientes</h4> 
-                <p>5</p>
-            </div>
-            <div class="comintec-card">
-                <h4>Tareas Pendientes</h4>
-                <p>3</p>
-            </div>
-        </div>
-
-        <div class="main-data">
-            <div class="calendar-container">
-                <div class="calendar-section-header">
-                    <h1>Calendario</h1>
-                    <p>Hoy es: <span id="display-current-date" class="current-date"></span></p>
+    <div class="main-content container-fluid mt-4">
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-lg-7">
+                <div class="comintec-card mb-4">
+                    <h4>Nuevos Clientes</h4> 
+                    <p>5</p>
                 </div>
-                <div class="calendar-header">
-                    <button class="nav-button" id="g-prev-month">&lt;</button>
-                    <h3 id="g-month-year"></h3>
-                    <button class="nav-button" id="g-next-month">&gt;</button>
-                </div>
-                <div class="grid-calendar">
-                    <div class="weekdays">
-                        <span>Dom</span><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span>
+                <div class="calendar-container comintec-card p-3 mb-4">
+                    <div class="calendar-section-header">
+                        <h1>Calendario</h1>
+                        <p>Hoy es: <span id="display-current-date" class="current-date"></span></p>
                     </div>
-                    <div class="days-grid" id="grid-calendar-days"></div>
+                    <div class="calendar-header">
+                        <button class="nav-button" id="g-prev-month">&lt;</button>
+                        <h3 id="g-month-year"></h3>
+                        <button class="nav-button" id="g-next-month">&gt;</button>
+                    </div>
+                    <div class="grid-calendar">
+                        <div class="weekdays">
+                            <span>Dom</span><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span>
+                        </div>
+                        <div class="days-grid" id="grid-calendar-days"></div>
+                    </div>
                 </div>
             </div>
 
-            <div class="recent-activity">
-                <h4>Actividad Reciente</h4>
-                <ul>
-                    <li>Usuario X completó la tarea Y.</li>
-                    <li>Nueva venta registrada: #12345.</li>
-                </ul>
+            <!-- Right Column -->
+            <div class="col-lg-5">
+                <div class="comintec-card mb-4">
+                    <h4>Tareas Pendientes</h4>
+                    <p>3</p>
+                </div>
+                <div class="recent-activity comintec-card p-3 mb-4">
+                    <h4>Actividad Reciente</h4>
+                    <ul>
+                        <li>Usuario X completó la tarea Y.</li>
+                        <li>Nueva venta registrada: #12345.</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-        <section class="workchain-section">
-            <header class="mb-6 text-center">
-                <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Panel de Estado de Áreas</h1>
-                <p class="text-gray-600 mt-2">Selecciona el estado para cada área de trabajo.</p>
+        <section class="workchain-section mt-4">
+            <header class="mb-5 text-center">
+                <h1 class="display-4 fw-bold text-dark">Panel de Estado de Áreas</h1>
+                <p class="text-muted mt-2">Selecciona el estado para cada área de trabajo.</p>
             </header>
 
-            <div class="controls-container max-w-md mx-auto">
-                <div id="lock-feature-container" class="hidden">
-                    <button id="lock-workflow-button"></button>
+            <div class="controls-container mx-auto" style="max-width: 28rem;">
+                <div id="lock-feature-container" class="d-none">
+                    <button id="lock-workflow-button" class="btn"></button>
                 </div>
             </div>
 
             <main>
-                <div id="workflow-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-8">
+                <div id="workflow-container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4 mb-5">
                 </div>
             </main>
 
@@ -190,24 +147,24 @@
                     name: 'Barras de Progreso e Iconos',
                     getCardContent: (areaId, areaData, statusKey) => {
                         const progressValues = { [statusKeys.PENDING]: 10, [statusKeys.REVIEW]: 50, [statusKeys.COMPLETED]: 100 };
-                        const progressColors = { [statusKeys.PENDING]: 'bg-slate-400', [statusKeys.REVIEW]: 'bg-amber-400', [statusKeys.COMPLETED]: 'bg-emerald-500' };
+                        const bsProgressColors = { [statusKeys.PENDING]: 'bg-info', [statusKeys.REVIEW]: 'bg-warning', [statusKeys.COMPLETED]: 'bg-success' };
                         const icons = { [statusKeys.PENDING]: '⏳', [statusKeys.REVIEW]: '🔍', [statusKeys.COMPLETED]: '✅' };
                         return `
-                            <div class="text-2xl text-center mb-2">${icons[statusKey] || ''}</div>
-                            <div class="progress-bar-container">
-                                <div class="progress-bar ${progressColors[statusKey]}" style="width: ${progressValues[statusKey]}%;"></div>
+                            <div class="fs-4 text-center mb-2">${icons[statusKey] || ''}</div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar ${bsProgressColors[statusKey]}" role="progressbar" style="width: ${progressValues[statusKey]}%;" aria-valuenow="${progressValues[statusKey]}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>`;
                     },
                     statusProperties: { 
-                        [statusKeys.PENDING]: { label: 'Pendiente', areaClasses: ['bg-white', 'border-gray-300', 'text-slate-700'], btnClasses: ['bg-slate-500', 'hover:bg-slate-600', 'text-white'] },
-                        [statusKeys.REVIEW]: { label: 'Revisión', areaClasses: ['bg-white', 'border-gray-300', 'text-amber-700'], btnClasses: ['bg-amber-500', 'hover:bg-amber-600', 'text-white'] },
-                        [statusKeys.COMPLETED]: { label: 'Completado', areaClasses: ['bg-white', 'border-gray-300', 'text-emerald-700'], btnClasses: ['bg-emerald-500', 'hover:bg-emerald-600', 'text-white'] }
+                        [statusKeys.PENDING]: { label: 'Pendiente', areaClasses: ['border-info'], btnClasses: ['btn', 'btn-sm', 'btn-info'] },
+                        [statusKeys.REVIEW]: { label: 'Revisión', areaClasses: ['border-warning'], btnClasses: ['btn', 'btn-sm', 'btn-warning'] },
+                        [statusKeys.COMPLETED]: { label: 'Completado', areaClasses: ['border-success'], btnClasses: ['btn', 'btn-sm', 'btn-success'] }
                     }
                 };
 
                 const lockIcons = {
-                    locked: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2"><path fill-rule="evenodd" d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3A5.25 5.25 0 0012 1.5zm-3.75 5.25v3h7.5v-3a3.75 3.75 0 00-7.5 0z" clip-rule="evenodd" /></svg> Desbloquear Flujo`,
-                    unlocked: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2"><path d="M18 1.5c2.9 0 5.25 2.35 5.25 5.25v3.75a.75.75 0 01-1.5 0V6.75a3.75 3.75 0 10-7.5 0v3a3 3 0 01-3 3v6.75a3 3 0 01-3 3H3.75a3 3 0 01-3-3v-6.75a3 3 0 013-3h1.034V6.75A5.25 5.25 0 0112 1.5c1.587 0 3.035.703 4.096 1.857A.75.75 0 0117.03.643 6.72 6.72 0 0012 0a6.75 6.75 0 00-6.75 6.75v3H3.75a4.5 4.5 0 00-4.5 4.5v6.75a4.5 4.5 0 004.5 4.5h10.5a4.5 4.5 0 004.5-4.5v-6.75a4.5 4.5 0 00-4.5-4.5H15V6.75A3.75 3.75 0 0118 1.5z" /></svg> Bloquear Flujo`
+                    locked: `<i class="bi bi-lock-fill me-2"></i> Desbloquear Flujo`,
+                    unlocked: `<i class="bi bi-unlock-fill me-2"></i> Bloquear Flujo`
                 };
 
                 function initializeAndRenderWorkflow() {
@@ -216,36 +173,45 @@
 
                     Object.keys(areasConfig).forEach(areaId => {
                         const areaData = areasConfig[areaId];
+                        
+                        const colWrapper = document.createElement('div');
+                        colWrapper.className = 'col';
+
                         const areaEl = document.createElement('div');
                         areaEl.id = areaId;
                         areaEl.dataset.id = areaId;
-                        areaEl.className = 'area-card p-4 border rounded-lg shadow-md flex flex-col justify-between';
+                        areaEl.className = 'card h-100'; 
+                        
+                        const cardBody = document.createElement('div');
+                        cardBody.className = 'card-body d-flex flex-column';
                         
                         const dynamicContentEl = document.createElement('div');
-                        dynamicContentEl.className = 'theme-specific-content mb-2';
-                        areaEl.appendChild(dynamicContentEl);
+                        dynamicContentEl.className = 'theme-specific-content mb-3';
+                        cardBody.appendChild(dynamicContentEl);
 
                         const titleEl = document.createElement('h3');
-                        titleEl.className = 'text-md font-semibold mb-2 text-gray-700 text-center';
+                        titleEl.className = 'card-title h5 text-center mb-2'; 
                         titleEl.textContent = areaData.name;
-                        areaEl.appendChild(titleEl);
+                        cardBody.appendChild(titleEl);
 
                         const statusButtonsContainer = document.createElement('div');
-                        statusButtonsContainer.className = 'flex flex-wrap justify-center items-center gap-1.5 mt-auto pt-2 border-t border-gray-200';
+                        statusButtonsContainer.className = 'd-flex flex-wrap justify-content-center align-items-center gap-1 mt-auto pt-2 border-top';
 
                         Object.keys(statusKeys).forEach(key => {
                             const statusVal = statusKeys[key];
                             const statusInfo = fixedThemeConfig.statusProperties[statusVal];
                             const buttonEl = document.createElement('button');
-                            buttonEl.className = `status-button rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-opacity-75 ${statusInfo.btnClasses.join(' ')}`;
+                            buttonEl.className = `${statusInfo.btnClasses.join(' ')}`; 
                             buttonEl.textContent = statusInfo.label;
                             buttonEl.dataset.statusKey = statusVal;
                             buttonEl.onclick = () => changeAreaState(areaId, statusVal);
                             statusButtonsContainer.appendChild(buttonEl);
                         });
                         
-                        areaEl.appendChild(statusButtonsContainer);
-                        container.appendChild(areaEl);
+                        cardBody.appendChild(statusButtonsContainer);
+                        areaEl.appendChild(cardBody);
+                        colWrapper.appendChild(areaEl);
+                        container.appendChild(colWrapper);
                         
                         const savedStatus = localStorage.getItem(`areaState_${areaId}`) || defaultStatus;
                         setAreaState(areaId, savedStatus);
@@ -273,6 +239,7 @@
                     Object.values(fixedThemeConfig.statusProperties).forEach(s => {
                         s.areaClasses.forEach(cls => areaEl.classList.remove(cls));
                     });
+                    areaEl.classList.add('border');
                     statusInfo.areaClasses.forEach(cls => areaEl.classList.add(cls));
 
                     const dynamicContentEl = areaEl.querySelector('.theme-specific-content');
@@ -295,23 +262,21 @@
                     const lockFeatureContainer = document.getElementById('lock-feature-container');
                     const lockButton = document.getElementById('lock-workflow-button');
                     let allCompleted = true;
-                    document.querySelectorAll('.area-card').forEach(card => {
+                    document.querySelectorAll('#workflow-container .card').forEach(card => {
                         if (card.dataset.currentStatus !== statusKeys.COMPLETED) {
                             allCompleted = false;
                         }
                     });
 
                     if (allCompleted) {
-                        lockFeatureContainer.classList.remove('hidden');
+                        lockFeatureContainer.classList.remove('d-none');
                         lockButton.innerHTML = isWorkflowLocked ? lockIcons.locked : lockIcons.unlocked;
-                        lockButton.classList.toggle('locked', isWorkflowLocked);
-                        lockButton.classList.toggle('unlocked', !isWorkflowLocked);
+                        lockButton.className = `btn ${isWorkflowLocked ? 'btn-danger' : 'btn-primary'} d-flex align-items-center justify-content-center`;
                     } else {
-                        lockFeatureContainer.classList.add('hidden');
+                        lockFeatureContainer.classList.add('d-none');
                         if (isWorkflowLocked) {
                             isWorkflowLocked = false;
                             localStorage.setItem('workflowLocked', 'false');
-                            updateAllCardControlsLockState();
                         }
                     }
                     updateAllCardControlsLockState();
@@ -324,7 +289,7 @@
                 }
 
                 function updateAllCardControlsLockState() {
-                    document.querySelectorAll('.area-card .status-button').forEach(button => {
+                    document.querySelectorAll('#workflow-container .card .status-button').forEach(button => {
                         button.disabled = isWorkflowLocked;
                     });
                 }
@@ -338,7 +303,7 @@
             </script>
         </section>
 
-        <section id="sales-details-section">
+        <section id="sales-details-section" class="mt-4">
             <h3 id="selected-day-heading">Ventas del Día: --</h3>
             <div id="sales-summary">
                 <h4>Resumen del Día</h4>
@@ -359,7 +324,7 @@
                 </thead>
                 <tbody id="sales-table-body">
                     <tr>
-                        <td colspan="6" style="text-align:center;">Seleccione un día para ver las ventas.</td> <!-- This text should remain in Spanish as it is user-facing -->
+                        <td colspan="6" style="text-align:center;">Seleccione un día para ver las ventas.</td>
                     </tr>
                 </tbody>
             </table>
@@ -367,57 +332,39 @@
     </div>
 
     <script>
-        // --- Lógica Común ---
-        const hoy = new Date(); // Fecha actual
+        const hoy = new Date();
         const nombresMeses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
         const nombresDias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
 
-        // Muestra la fecha actual completa en el encabezado
         document.getElementById('display-current-date').textContent = `${nombresDias[hoy.getDay()]}, ${hoy.getDate()} de ${nombresMeses[hoy.getMonth()]} de ${hoy.getFullYear()}`;
 
-        /**
-         * Comprueba si dos fechas son el mismo día.
-         * @param {Date} fecha1 - La primera fecha.
-         * @param {Date} fecha2 - La segunda fecha.
-         * @returns {boolean} - True si son el mismo día, false en caso contrario.
-         */
         function esMismoDia(fecha1, fecha2) {
             return fecha1.getFullYear() === fecha2.getFullYear() &&
                    fecha1.getMonth() === fecha2.getMonth() &&
                    fecha1.getDate() === fecha2.getDate();
         }
         
-        // --- Lógica Calendario de Malla ---
-        let gFechaActual = new Date(hoy); // Fecha que el calendario de malla está mostrando actualmente
-        let fechaSeleccionada = new Date(hoy); // Fecha seleccionada por el usuario
+        let gFechaActual = new Date(hoy);
+        let fechaSeleccionada = new Date(hoy);
 
-        /**
-         * Actualiza el resumen de ventas para la fecha seleccionada
-         * @param {Date} fecha - La fecha seleccionada
-         */
         function actualizarResumenVentas(fecha) {
             const heading = document.getElementById('selected-day-heading');
             const totalVentas = document.getElementById('summary-total-ventas');
             const numTransacciones = document.getElementById('summary-num-transacciones');
             const tablaVentas = document.getElementById('sales-table-body');
 
-            // Formatear la fecha para mostrar
             const fechaFormateada = `${nombresDias[fecha.getDay()]}, ${fecha.getDate()} de ${nombresMeses[fecha.getMonth()]} de ${fecha.getFullYear()}`;
             heading.textContent = `Ventas del Día: ${fechaFormateada}`;
 
-            // Aquí iría la lógica para obtener los datos de ventas del día
-            // Por ahora, mostraremos datos de ejemplo
             const ventasEjemplo = [
                 { id: 1, categoria: 'Electrónicos', producto: 'Laptop', cantidad: 2, precioUnitario: 15000, total: 30000 },
                 { id: 2, categoria: 'Accesorios', producto: 'Mouse', cantidad: 5, precioUnitario: 500, total: 2500 }
             ];
 
-            // Actualizar resumen
             const total = ventasEjemplo.reduce((sum, venta) => sum + venta.total, 0);
             totalVentas.textContent = total.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' });
             numTransacciones.textContent = ventasEjemplo.length;
 
-            // Actualizar tabla de ventas
             tablaVentas.innerHTML = ventasEjemplo.map(venta => `
                 <tr>
                     <td>${venta.id}</td>
@@ -430,64 +377,48 @@
             `).join('');
         }
 
-        /**
-         * Renderiza el calendario de malla para el mes y año en gFechaActual.
-         */
         function renderGridCalendar() {
             const diasGridContainer = document.getElementById('grid-calendar-days');
-            // Actualiza el título del mes y año
             document.getElementById('g-month-year').textContent = `${nombresMeses[gFechaActual.getMonth()]} ${gFechaActual.getFullYear()}`;
-            diasGridContainer.innerHTML = ''; // Limpia la cuadrícula anterior
+            diasGridContainer.innerHTML = '';
 
-            // Calcula el primer y último día del mes actual
             const primerDiaDelMes = new Date(gFechaActual.getFullYear(), gFechaActual.getMonth(), 1);
             const ultimoDiaDelMes = new Date(gFechaActual.getFullYear(), gFechaActual.getMonth() + 1, 0);
             
-            // Obtiene el día de la semana en que comienza el mes (0 para Domingo, 1 para Lunes, etc.)
             const diaInicioSemana = primerDiaDelMes.getDay(); 
 
-            // Rellenar celdas vacías para los días del mes anterior que aparecen en la primera semana
             for (let i = 0; i < diaInicioSemana; i++) {
                 const diaEl = document.createElement('div');
                 diaEl.classList.add('day-cell', 'other-month');
                 diasGridContainer.appendChild(diaEl);
             }
 
-            // Rellenar los días del mes actual
             for (let i = 1; i <= ultimoDiaDelMes.getDate(); i++) {
                 const diaActualLoop = new Date(gFechaActual.getFullYear(), gFechaActual.getMonth(), i);
                 const diaEl = document.createElement('div');
                 diaEl.classList.add('day-cell');
-                diaEl.textContent = i; // Número del día
+                diaEl.textContent = i;
                 
-                // Si el día del bucle es el día de hoy, se le añade una clase especial
                 if (esMismoDia(diaActualLoop, hoy)) {
                     diaEl.classList.add('is-today');
                 }
 
-                // Si el día del bucle es el día seleccionado, se le añade la clase selected
                 if (esMismoDia(diaActualLoop, fechaSeleccionada)) {
                     diaEl.classList.add('selected');
                 }
 
-                // Agregar evento click para seleccionar el día
                 diaEl.addEventListener('click', () => {
-                    // Remover la clase selected de todos los días
                     document.querySelectorAll('.day-cell').forEach(cell => {
                         cell.classList.remove('selected');
                     });
-                    // Agregar la clase selected al día clickeado
                     diaEl.classList.add('selected');
-                    // Actualizar la fecha seleccionada
                     fechaSeleccionada = new Date(gFechaActual.getFullYear(), gFechaActual.getMonth(), i);
-                    // Actualizar el resumen de ventas
                     actualizarResumenVentas(fechaSeleccionada);
                 });
 
                 diasGridContainer.appendChild(diaEl);
             }
 
-            // Rellenar celdas vacías para los días del mes siguiente que aparecen en la última semana
             const totalCeldasRellenas = diaInicioSemana + ultimoDiaDelMes.getDate();
             const celdasRestantesParaCompletarGrid = (7 - (totalCeldasRellenas % 7)) % 7; 
 
@@ -498,26 +429,22 @@
             }
         }
 
-        // Event listener para el botón de mes anterior
         document.getElementById('g-prev-month').addEventListener('click', () => {
-            gFechaActual.setMonth(gFechaActual.getMonth() - 1); // Retrocede un mes
-            renderGridCalendar(); // Vuelve a dibujar el calendario
+            gFechaActual.setMonth(gFechaActual.getMonth() - 1);
+            renderGridCalendar();
         });
 
-        // Event listener para el botón de mes siguiente
         document.getElementById('g-next-month').addEventListener('click', () => {
-            gFechaActual.setMonth(gFechaActual.getMonth() + 1); // Avanza un mes
-            renderGridCalendar(); // Vuelve a dibujar el calendario
+            gFechaActual.setMonth(gFechaActual.getMonth() + 1);
+            renderGridCalendar();
         });
 
-        // --- Inicialización del calendario ---
         document.addEventListener('DOMContentLoaded', () => {
-            renderGridCalendar(); // Dibuja el calendario cuando la página se carga por primera vez
-            actualizarResumenVentas(fechaSeleccionada); // Muestra el resumen de ventas del día actual
+            renderGridCalendar();
+            actualizarResumenVentas(fechaSeleccionada);
         });
     </script>
 
-    <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
