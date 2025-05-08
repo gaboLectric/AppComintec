@@ -1,4 +1,4 @@
-z<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -6,250 +6,458 @@ z<!DOCTYPE html>
     <title>AppComintec - Dashboard</title>
     <link rel="stylesheet" href="styles.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
- <header class="bg-gray-800 text-white p-4 flex justify-between items-center sticky top-0 z-50">
+    <header>
         <div class="flex items-center">
-            <div class="logo mr-4">
-            <img src="logo.png" alt="Comintec Logo" class="img-fluid" onerror="this.style.display='none'; this.onerror=null; const p = document.createElement('p'); p.textContent='Logo'; this.parentNode.appendChild(p);">
+            <div class="logo">
+                <img src="logo.png" alt="Comintec Logo" class="img-fluid" onerror="this.style.display='none'; this.onerror=null; const p = document.createElement('p'); p.textContent='Logo'; this.parentNode.appendChild(p);">
             </div>
             <nav>
-                <ul class="flex space-x-4">
-                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-home"></i> Panel de Control</a></li>
-
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Panel de Control</a></li>
                     <li class="dropdown relative">
-                        <a href="#" class="hover:text-gray-300"><i class="fas fa-chart-bar"></i> Ventas</a>
- <ul class="dropdown-menu absolute hidden bg-gray-700 text-white mt-2 py-2 rounded shadow-lg w-48">
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Agregar Cliente</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Mis Clientes</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Borrador de Cotizacion</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Existencias de Productos</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Asignacion de Clientes</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Fichas Tecnicas</a></li>
-
+                        <a href="#"><i class="fas fa-chart-bar"></i> Ventas</a>
+                        <ul class="dropdown-menu absolute hidden mt-2 py-2 rounded shadow-lg w-48">
+                            <li><a href="#">Agregar Cliente</a></li>
+                            <li><a href="#">Mis Clientes</a></li>
+                            <li><a href="#">Borrador de Cotizacion</a></li>
+                            <li><a href="#">Existencias de Productos</a></li>
+                            <li><a href="#">Asignacion de Clientes</a></li>
+                            <li><a href="#">Fichas Tecnicas</a></li>
                         </ul>
                     </li>
-
-                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-box"></i> Inventario</a></li>
-
+                    <li><a href="#"><i class="fas fa-box"></i> Inventario</a></li>
                     <li class="dropdown relative">
-                        <a href="#" class="hover:text-gray-300"><i class="fas fa-sliders-h"></i> Administración</a>
- <ul class="dropdown-menu absolute hidden bg-gray-700 text-white mt-2 py-2 rounded shadow-lg w-48">
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Solicitud de Viaticos</a></li>
-                            <li><a href="solicitud_material.html" class="block px-4 py-2 hover:bg-gray-600">Solicitud de Material</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Solicitud de Tiempo</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Solicitud de Material</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Solicitud de Paqueteria</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Asigna Numero Fiscal</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Mis Solicitudes</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Contratos Repse</a></li>
-
+                        <a href="#"><i class="fas fa-sliders-h"></i> Administración</a>
+                        <ul class="dropdown-menu absolute hidden mt-2 py-2 rounded shadow-lg w-48">
+                            <li><a href="#">Solicitud de Viaticos</a></li>
+                            <li><a href="solicitud_material.html">Solicitud de Material</a></li>
+                            <li><a href="#">Solicitud de Tiempo</a></li>
+                            <li><a href="#">Solicitud de Material</a></li>
+                            <li><a href="#">Solicitud de Paqueteria</a></li>
+                            <li><a href="#">Asigna Numero Fiscal</a></li>
+                            <li><a href="#">Mis Solicitudes</a></li>
+                            <li><a href="#">Contratos Repse</a></li>
                         </ul>
                     </li>
-
-                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-shopping-cart"></i> Compras</a></li>
-
-                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-tools"></i> Servicio</a></li>
-
-                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-balance-scale"></i> Metrología</a></li>
-
-                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-file-alt"></i> Informes</a></li>
-
-                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-laptop-code"></i> Sistemas</a></li> <!-- Assuming "Sistemas" is the correct Spanish term for Systems -->
-
-                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-bullhorn"></i> Marketing</a></li> <!-- Assuming "Marketing" is commonly used in Spanish context, otherwise "Mercadotecnia" could be an alternative -->
-
-                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-check-circle"></i> Calidad</a></li>
-
-                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-users"></i> Clientes</a></li>
-
-                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-cog"></i> Configuración</a></li>
-
+                    <li><a href="#"><i class="fas fa-shopping-cart"></i> Compras</a></li>
+                    <li><a href="#"><i class="fas fa-tools"></i> Servicio</a></li>
+                    <li><a href="#"><i class="fas fa-balance-scale"></i> Metrología</a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> Informes</a></li>
+                    <li><a href="#"><i class="fas fa-laptop-code"></i> Sistemas</a></li>
+                    <li><a href="#"><i class="fas fa-bullhorn"></i> Marketing</a></li>
+                    <li><a href="#"><i class="fas fa-check-circle"></i> Calidad</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Configuración</a></li>
                 </ul>
             </nav>
         </div>
-        <div class="user-profile flex items-center space-x-2">
-            <img src="profile.png" alt="User Profile" class="rounded-full h-8 w-8" onerror="this.style.display='none'; this.onerror=null; const i = document.createElement('i'); i.className='fas fa-user-circle fa-2x'; this.parentNode.insertBefore(i, this.nextSibling);">
+        <div class="user-profile">
+            <img src="profile.png" alt="User Profile" class="rounded-full" onerror="this.style.display='none'; this.onerror=null; const i = document.createElement('i'); i.className='fas fa-user-circle fa-2x'; this.parentNode.insertBefore(i, this.nextSibling);">
             <span>Nombre Usuario</span>
         </div>
     </header>
-    <div class="main-content p-4 pt-24"> <!-- Added padding-top to account for fixed header -->
-                <div class="card">
-                    <h4>Nuevos Clientes</h4>
-                    <p>5</p>
-                </div>
-                <div class="card">
-                    <h4>Tareas Pendientes</h4>
-                    <p>3</p>
-                </div>
- <main>
-            </section>
 
-            <section class="main-data">
-                <div class="calendar-container">
-                    <h3>Calendario de Actividades</h3>
-                    <div class="calendar-header">
-                        <button id="prev-month">&lt;</button>
-                        <h2 id="month-year">Mayo 2025</h2> <button id="next-month">&gt;</button>
+    <div class="main-content">
+        <div class="dashboard-grid">
+            <div class="card">
+                <h4>Nuevos Clientes</h4>
+                <p>5</p>
+            </div>
+            <div class="card">
+                <h4>Tareas Pendientes</h4>
+                <p>3</p>
+            </div>
+        </div>
+
+        <div class="main-data">
+            <div class="calendar-container">
+                <div class="calendar-section-header">
+                    <h1>Calendario</h1>
+                    <p>Hoy es: <span id="display-current-date" class="current-date"></span></p>
+                </div>
+                <div class="calendar-header">
+                    <button class="nav-button" id="g-prev-month">&lt;</button>
+                    <h3 id="g-month-year"></h3>
+                    <button class="nav-button" id="g-next-month">&gt;</button>
+                </div>
+                <div class="grid-calendar">
+                    <div class="weekdays">
+                        <span>Dom</span><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span>
                     </div>
-                    <table class="calendar">
-                        <thead>
-                            <tr>
-                                <th>Dom</th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th>
-                            </tr>
-                        </thead>
-                        <tbody id="calendar-body">
-                            <tr><td></td><td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
-                            <tr><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td></tr>
-                            <tr><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td></tr>
-                            <tr><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td></tr>
-                            <tr><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td></td></tr>
-                        </tbody>
-                    </table>
+                    <div class="days-grid" id="grid-calendar-days"></div>
                 </div>
+            </div>
 
-                <div class="recent-activity">
-                     <h4>Actividad Reciente</h4>
-                     <ul>
-                        <li>Usuario X completó la tarea Y.</li>
-                        <li>Nueva venta registrada: #12345.</li> <!-- Assuming #12345 is an ID and doesn't need translation -->
-                     </ul>
+            <div class="recent-activity">
+                <h4>Actividad Reciente</h4>
+                <ul>
+                    <li>Usuario X completó la tarea Y.</li>
+                    <li>Nueva venta registrada: #12345.</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="workchain-section">
+            <header class="mb-6 text-center">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Panel de Estado de Áreas</h1>
+                <p class="text-gray-600 mt-2">Selecciona el estado para cada área de trabajo.</p>
+            </header>
+
+            <div class="controls-container max-w-md mx-auto">
+                <div id="lock-feature-container" class="hidden">
+                    <button id="lock-workflow-button"></button>
                 </div>
-            </section>
+            </div>
 
-            <section class="workchain-section">
-                <h3>Work Chain / Supply Chain</h3>
-                <div class="workchain-visualizer">
-                    <div class="workchain-progress-bar">
-                        <div class="progress-fill" style="width: 0%;"></div>
-                    </div>
-                    <div class="workchain-steps">
-                        <div class="step" data-step="1">
-                            <div class="indicator" data-status="pending"></div>
-                            <span class="step-label">Paso 1: Materias Primas</span>
-                        </div>
-                        <div class="connector"></div>
-                        <div class="step" data-step="2">
-                            <div class="indicator" data-status="pending"></div>
-                            <span class="step-label">Paso 2: Fabricación</span>
-                        </div>
-                        <div class="connector"></div>
-                        <div class="step" data-step="3">
-                            <div class="indicator" data-status="pending"></div>
-                            <span class="step-label">Paso 3: Distribución</span>
-                        </div>
-                        <div class="connector"></div>
-                        <div class="step" data-step="4">
-                            <div class="indicator" data-status="pending"></div>
-                            <span class="step-label">Paso 4: Entrega</span>
-                        </div>
-                        <div class="connector"></div>
-                        <div class="step" data-step="5">
-                            <div class="indicator" data-status="pending"></div>
-                            <span class="step-label">Paso 5: Cliente</span>
-                        </div>
-                    </div>
+            <main>
+                <div id="workflow-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-8">
                 </div>
+            </main>
 
-                <div class="workchain-controls">
-                    <h4>Actualizar Estado del Paso</h4>
-                    <label for="select-step">Seleccionar Paso:</label>
-                    <select id="select-step">
-                        <option value="1">Paso 1: Materias Primas</option>
-                        <option value="2">Paso 2: Fabricación</option>
-                        <option value="3">Paso 3: Distribución</option>
-                        <option value="4">Paso 4: Entrega</option>
-                        <option value="5">Paso 5: Cliente</option>
-                    </select>
+            <script>
+                const areasConfig = {
+                    'home': { name: 'Home' }, 'almacen': { name: 'Almacén' }, 'administracion': { name: 'Administración' },
+                    'compras': { name: 'Compras' }, 'ventas': { name: 'Ventas' }, 'servicio': { name: 'Servicio' },
+                    'metrologia': { name: 'Metrología' }, 'informes': { name: 'Informes' }, 'sistemas': { name: 'Sistemas' },
+                    'marketing': { name: 'Marketing' }, 'calidad': { name: 'Calidad' }
+                };
 
-                    <label for="select-status">Seleccionar Estado:</label>
-                    <select id="select-status">
-                        <option value="pending">Pending</option>
-                        <option value="in-progress">In Progress</option>
-                        <option value="completed">Completed</option>
-                        <option value="issue">Issue</option>
-                    </select>
-                    <button id="update-status-button">Update Status</button>
-                    </div>
-                    <div id="completed" class="tab-content">
-                      <ul>
-                        <li>Tarea 3 - Estado: Completado</li>
-                        <li>Tarea 4 - Estado: Completado</li>
-                      </ul>
-                    </div>
-                    <div id="history" class="tab-content">
-                      <ul>
-                        <li>Tarea 5 - Fecha: 2024-01-01 - Estado: Completado</li>
-                        <li>Tarea 6 - Fecha: 2024-01-02 - Estado: Completado</li>
-                      </ul>
- <button id="download-sales-button">Descargar Datos de Ventas</button>
-                    </div></section>
+                const statusKeys = { PENDING: 'pending', REVIEW: 'review', COMPLETED: 'completed' };
+                const defaultStatus = statusKeys.PENDING;
+                let isWorkflowLocked = false;
+                const fixedThemeKey = 'progress';
 
-            <section id="sales-details-section">
-                <h3 id="selected-day-heading">Ventas del Día: --</h3>
-                <div id="sales-summary">
-                    <h4>Resumen del Día</h4>
-                    <p>Total Ventas: <span id="summary-total-ventas">--</span> MXN</p>
-                    <p>Número de Transacciones: <span id="summary-num-transacciones">--</span></p>
-                </div>
-                <h4>Detalle de Ventas</h4>
-                <table id="sales-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Categoría</th>
-                            <th>Producto</th>
-                            <th>Cantidad</th>
-                            <th>Precio Unitario</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody id="sales-table-body">
-                        <tr>
-                            <td colspan="6" style="text-align:center;">Seleccione un día para ver las ventas.</td> <!-- This text should remain in Spanish as it is user-facing -->
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-        </main>
-    </div>
-    <script src="script.js"></script>
-    <!-- JavaScript for dropdowns on click -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const dropdowns = document.querySelectorAll('.dropdown');
-
-        dropdowns.forEach(dropdown => {
-            const dropdownToggle = dropdown.querySelector('a');
-            const dropdownMenu = dropdown.querySelector('.dropdown-menu');
-
-            dropdownToggle.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevent default link behavior
-                dropdownMenu.classList.toggle('hidden');
-
-                // Close other open dropdowns
-                dropdowns.forEach(otherDropdown => {
-                    if (otherDropdown !== dropdown) {
-                        otherDropdown.querySelector('.dropdown-menu').classList.add('hidden');
+                const fixedThemeConfig = {
+                    name: 'Barras de Progreso e Iconos',
+                    getCardContent: (areaId, areaData, statusKey) => {
+                        const progressValues = { [statusKeys.PENDING]: 10, [statusKeys.REVIEW]: 50, [statusKeys.COMPLETED]: 100 };
+                        const progressColors = { [statusKeys.PENDING]: 'bg-slate-400', [statusKeys.REVIEW]: 'bg-amber-400', [statusKeys.COMPLETED]: 'bg-emerald-500' };
+                        const icons = { [statusKeys.PENDING]: '⏳', [statusKeys.REVIEW]: '🔍', [statusKeys.COMPLETED]: '✅' };
+                        return `
+                            <div class="text-2xl text-center mb-2">${icons[statusKey] || ''}</div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar ${progressColors[statusKey]}" style="width: ${progressValues[statusKey]}%;"></div>
+                            </div>`;
+                    },
+                    statusProperties: { 
+                        [statusKeys.PENDING]: { label: 'Pendiente', areaClasses: ['bg-white', 'border-gray-300', 'text-slate-700'], btnClasses: ['bg-slate-500', 'hover:bg-slate-600', 'text-white'] },
+                        [statusKeys.REVIEW]: { label: 'Revisión', areaClasses: ['bg-white', 'border-gray-300', 'text-amber-700'], btnClasses: ['bg-amber-500', 'hover:bg-amber-600', 'text-white'] },
+                        [statusKeys.COMPLETED]: { label: 'Completado', areaClasses: ['bg-white', 'border-gray-300', 'text-emerald-700'], btnClasses: ['bg-emerald-500', 'hover:bg-emerald-600', 'text-white'] }
                     }
+                };
+
+                const lockIcons = {
+                    locked: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2"><path fill-rule="evenodd" d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3A5.25 5.25 0 0012 1.5zm-3.75 5.25v3h7.5v-3a3.75 3.75 0 00-7.5 0z" clip-rule="evenodd" /></svg> Desbloquear Flujo`,
+                    unlocked: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2"><path d="M18 1.5c2.9 0 5.25 2.35 5.25 5.25v3.75a.75.75 0 01-1.5 0V6.75a3.75 3.75 0 10-7.5 0v3a3 3 0 01-3 3v6.75a3 3 0 01-3 3H3.75a3 3 0 01-3-3v-6.75a3 3 0 013-3h1.034V6.75A5.25 5.25 0 0112 1.5c1.587 0 3.035.703 4.096 1.857A.75.75 0 0117.03.643 6.72 6.72 0 0012 0a6.75 6.75 0 00-6.75 6.75v3H3.75a4.5 4.5 0 00-4.5 4.5v6.75a4.5 4.5 0 004.5 4.5h10.5a4.5 4.5 0 004.5-4.5v-6.75a4.5 4.5 0 00-4.5-4.5H15V6.75A3.75 3.75 0 0118 1.5z" /></svg> Bloquear Flujo`
+                };
+
+                function initializeAndRenderWorkflow() {
+                    const container = document.getElementById('workflow-container');
+                    container.innerHTML = '';
+
+                    Object.keys(areasConfig).forEach(areaId => {
+                        const areaData = areasConfig[areaId];
+                        const areaEl = document.createElement('div');
+                        areaEl.id = areaId;
+                        areaEl.dataset.id = areaId;
+                        areaEl.className = 'area-card p-4 border rounded-lg shadow-md flex flex-col justify-between';
+                        
+                        const dynamicContentEl = document.createElement('div');
+                        dynamicContentEl.className = 'theme-specific-content mb-2';
+                        areaEl.appendChild(dynamicContentEl);
+
+                        const titleEl = document.createElement('h3');
+                        titleEl.className = 'text-md font-semibold mb-2 text-gray-700 text-center';
+                        titleEl.textContent = areaData.name;
+                        areaEl.appendChild(titleEl);
+
+                        const statusButtonsContainer = document.createElement('div');
+                        statusButtonsContainer.className = 'flex flex-wrap justify-center items-center gap-1.5 mt-auto pt-2 border-t border-gray-200';
+
+                        Object.keys(statusKeys).forEach(key => {
+                            const statusVal = statusKeys[key];
+                            const statusInfo = fixedThemeConfig.statusProperties[statusVal];
+                            const buttonEl = document.createElement('button');
+                            buttonEl.className = `status-button rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-opacity-75 ${statusInfo.btnClasses.join(' ')}`;
+                            buttonEl.textContent = statusInfo.label;
+                            buttonEl.dataset.statusKey = statusVal;
+                            buttonEl.onclick = () => changeAreaState(areaId, statusVal);
+                            statusButtonsContainer.appendChild(buttonEl);
+                        });
+                        
+                        areaEl.appendChild(statusButtonsContainer);
+                        container.appendChild(areaEl);
+                        
+                        const savedStatus = localStorage.getItem(`areaState_${areaId}`) || defaultStatus;
+                        setAreaState(areaId, savedStatus);
+                    });
+                    updateLockFeatureVisibilityAndState();
+                }
+
+                function changeAreaState(areaId, newStatusKey) {
+                    if (isWorkflowLocked) {
+                        console.log("Workflow is locked. Cannot change state.");
+                        return;
+                    }
+                    setAreaState(areaId, newStatusKey);
+                    localStorage.setItem(`areaState_${areaId}`, newStatusKey);
+                    updateLockFeatureVisibilityAndState();
+                }
+
+                function setAreaState(areaId, statusKey) {
+                    const areaEl = document.getElementById(areaId);
+                    if (!areaEl) return;
+
+                    areaEl.dataset.currentStatus = statusKey;
+                    const statusInfo = fixedThemeConfig.statusProperties[statusKey] || fixedThemeConfig.statusProperties[defaultStatus];
+
+                    Object.values(fixedThemeConfig.statusProperties).forEach(s => {
+                        s.areaClasses.forEach(cls => areaEl.classList.remove(cls));
+                    });
+                    statusInfo.areaClasses.forEach(cls => areaEl.classList.add(cls));
+
+                    const dynamicContentEl = areaEl.querySelector('.theme-specific-content');
+                    if (dynamicContentEl) {
+                        dynamicContentEl.innerHTML = fixedThemeConfig.getCardContent(areaId, areasConfig[areaId], statusKey);
+                    }
+                    
+                    const statusButtons = areaEl.querySelectorAll('.status-button');
+                    statusButtons.forEach(btn => {
+                        btn.disabled = isWorkflowLocked;
+                        if (btn.dataset.statusKey === statusKey) {
+                            btn.classList.add('active-status');
+                        } else {
+                            btn.classList.remove('active-status');
+                        }
+                    });
+                }
+
+                function updateLockFeatureVisibilityAndState() {
+                    const lockFeatureContainer = document.getElementById('lock-feature-container');
+                    const lockButton = document.getElementById('lock-workflow-button');
+                    let allCompleted = true;
+                    document.querySelectorAll('.area-card').forEach(card => {
+                        if (card.dataset.currentStatus !== statusKeys.COMPLETED) {
+                            allCompleted = false;
+                        }
+                    });
+
+                    if (allCompleted) {
+                        lockFeatureContainer.classList.remove('hidden');
+                        lockButton.innerHTML = isWorkflowLocked ? lockIcons.locked : lockIcons.unlocked;
+                        lockButton.classList.toggle('locked', isWorkflowLocked);
+                        lockButton.classList.toggle('unlocked', !isWorkflowLocked);
+                    } else {
+                        lockFeatureContainer.classList.add('hidden');
+                        if (isWorkflowLocked) {
+                            isWorkflowLocked = false;
+                            localStorage.setItem('workflowLocked', 'false');
+                            updateAllCardControlsLockState();
+                        }
+                    }
+                    updateAllCardControlsLockState();
+                }
+                
+                function toggleWorkflowLock() {
+                    isWorkflowLocked = !isWorkflowLocked;
+                    localStorage.setItem('workflowLocked', isWorkflowLocked.toString());
+                    updateLockFeatureVisibilityAndState();
+                }
+
+                function updateAllCardControlsLockState() {
+                    document.querySelectorAll('.area-card .status-button').forEach(button => {
+                        button.disabled = isWorkflowLocked;
+                    });
+                }
+                
+                document.addEventListener('DOMContentLoaded', () => {
+                    const lockButton = document.getElementById('lock-workflow-button');
+                    isWorkflowLocked = localStorage.getItem('workflowLocked') === 'true';
+                    initializeAndRenderWorkflow();
+                    lockButton.addEventListener('click', toggleWorkflowLock);
                 });
-            });
+            </script>
+        </section>
+
+        <section id="sales-details-section">
+            <h3 id="selected-day-heading">Ventas del Día: --</h3>
+            <div id="sales-summary">
+                <h4>Resumen del Día</h4>
+                <p>Total Ventas: <span id="summary-total-ventas">--</span> MXN</p>
+                <p>Número de Transacciones: <span id="summary-num-transacciones">--</span></p>
+            </div>
+            <h4>Detalle de Ventas</h4>
+            <table id="sales-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Categoría</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="sales-table-body">
+                    <tr>
+                        <td colspan="6" style="text-align:center;">Seleccione un día para ver las ventas.</td> <!-- This text should remain in Spanish as it is user-facing -->
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script>
+        // --- Lógica Común ---
+        const hoy = new Date(); // Fecha actual
+        const nombresMeses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        const nombresDias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+
+        // Muestra la fecha actual completa en el encabezado
+        document.getElementById('display-current-date').textContent = `${nombresDias[hoy.getDay()]}, ${hoy.getDate()} de ${nombresMeses[hoy.getMonth()]} de ${hoy.getFullYear()}`;
+
+        /**
+         * Comprueba si dos fechas son el mismo día.
+         * @param {Date} fecha1 - La primera fecha.
+         * @param {Date} fecha2 - La segunda fecha.
+         * @returns {boolean} - True si son el mismo día, false en caso contrario.
+         */
+        function esMismoDia(fecha1, fecha2) {
+            return fecha1.getFullYear() === fecha2.getFullYear() &&
+                   fecha1.getMonth() === fecha2.getMonth() &&
+                   fecha1.getDate() === fecha2.getDate();
+        }
+        
+        // --- Lógica Calendario de Malla ---
+        let gFechaActual = new Date(hoy); // Fecha que el calendario de malla está mostrando actualmente
+        let fechaSeleccionada = new Date(hoy); // Fecha seleccionada por el usuario
+
+        /**
+         * Actualiza el resumen de ventas para la fecha seleccionada
+         * @param {Date} fecha - La fecha seleccionada
+         */
+        function actualizarResumenVentas(fecha) {
+            const heading = document.getElementById('selected-day-heading');
+            const totalVentas = document.getElementById('summary-total-ventas');
+            const numTransacciones = document.getElementById('summary-num-transacciones');
+            const tablaVentas = document.getElementById('sales-table-body');
+
+            // Formatear la fecha para mostrar
+            const fechaFormateada = `${nombresDias[fecha.getDay()]}, ${fecha.getDate()} de ${nombresMeses[fecha.getMonth()]} de ${fecha.getFullYear()}`;
+            heading.textContent = `Ventas del Día: ${fechaFormateada}`;
+
+            // Aquí iría la lógica para obtener los datos de ventas del día
+            // Por ahora, mostraremos datos de ejemplo
+            const ventasEjemplo = [
+                { id: 1, categoria: 'Electrónicos', producto: 'Laptop', cantidad: 2, precioUnitario: 15000, total: 30000 },
+                { id: 2, categoria: 'Accesorios', producto: 'Mouse', cantidad: 5, precioUnitario: 500, total: 2500 }
+            ];
+
+            // Actualizar resumen
+            const total = ventasEjemplo.reduce((sum, venta) => sum + venta.total, 0);
+            totalVentas.textContent = total.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' });
+            numTransacciones.textContent = ventasEjemplo.length;
+
+            // Actualizar tabla de ventas
+            tablaVentas.innerHTML = ventasEjemplo.map(venta => `
+                <tr>
+                    <td>${venta.id}</td>
+                    <td>${venta.categoria}</td>
+                    <td>${venta.producto}</td>
+                    <td>${venta.cantidad}</td>
+                    <td>${venta.precioUnitario.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })}</td>
+                    <td>${venta.total.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })}</td>
+                </tr>
+            `).join('');
+        }
+
+        /**
+         * Renderiza el calendario de malla para el mes y año en gFechaActual.
+         */
+        function renderGridCalendar() {
+            const diasGridContainer = document.getElementById('grid-calendar-days');
+            // Actualiza el título del mes y año
+            document.getElementById('g-month-year').textContent = `${nombresMeses[gFechaActual.getMonth()]} ${gFechaActual.getFullYear()}`;
+            diasGridContainer.innerHTML = ''; // Limpia la cuadrícula anterior
+
+            // Calcula el primer y último día del mes actual
+            const primerDiaDelMes = new Date(gFechaActual.getFullYear(), gFechaActual.getMonth(), 1);
+            const ultimoDiaDelMes = new Date(gFechaActual.getFullYear(), gFechaActual.getMonth() + 1, 0);
+            
+            // Obtiene el día de la semana en que comienza el mes (0 para Domingo, 1 para Lunes, etc.)
+            const diaInicioSemana = primerDiaDelMes.getDay(); 
+
+            // Rellenar celdas vacías para los días del mes anterior que aparecen en la primera semana
+            for (let i = 0; i < diaInicioSemana; i++) {
+                const diaEl = document.createElement('div');
+                diaEl.classList.add('day-cell', 'other-month');
+                diasGridContainer.appendChild(diaEl);
+            }
+
+            // Rellenar los días del mes actual
+            for (let i = 1; i <= ultimoDiaDelMes.getDate(); i++) {
+                const diaActualLoop = new Date(gFechaActual.getFullYear(), gFechaActual.getMonth(), i);
+                const diaEl = document.createElement('div');
+                diaEl.classList.add('day-cell');
+                diaEl.textContent = i; // Número del día
+                
+                // Si el día del bucle es el día de hoy, se le añade una clase especial
+                if (esMismoDia(diaActualLoop, hoy)) {
+                    diaEl.classList.add('is-today');
+                }
+
+                // Si el día del bucle es el día seleccionado, se le añade la clase selected
+                if (esMismoDia(diaActualLoop, fechaSeleccionada)) {
+                    diaEl.classList.add('selected');
+                }
+
+                // Agregar evento click para seleccionar el día
+                diaEl.addEventListener('click', () => {
+                    // Remover la clase selected de todos los días
+                    document.querySelectorAll('.day-cell').forEach(cell => {
+                        cell.classList.remove('selected');
+                    });
+                    // Agregar la clase selected al día clickeado
+                    diaEl.classList.add('selected');
+                    // Actualizar la fecha seleccionada
+                    fechaSeleccionada = new Date(gFechaActual.getFullYear(), gFechaActual.getMonth(), i);
+                    // Actualizar el resumen de ventas
+                    actualizarResumenVentas(fechaSeleccionada);
+                });
+
+                diasGridContainer.appendChild(diaEl);
+            }
+
+            // Rellenar celdas vacías para los días del mes siguiente que aparecen en la última semana
+            const totalCeldasRellenas = diaInicioSemana + ultimoDiaDelMes.getDate();
+            const celdasRestantesParaCompletarGrid = (7 - (totalCeldasRellenas % 7)) % 7; 
+
+            for (let i = 0; i < celdasRestantesParaCompletarGrid; i++) {
+                const diaEl = document.createElement('div');
+                diaEl.classList.add('day-cell', 'other-month');
+                diasGridContainer.appendChild(diaEl);
+            }
+        }
+
+        // Event listener para el botón de mes anterior
+        document.getElementById('g-prev-month').addEventListener('click', () => {
+            gFechaActual.setMonth(gFechaActual.getMonth() - 1); // Retrocede un mes
+            renderGridCalendar(); // Vuelve a dibujar el calendario
         });
 
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', function(e) {
-            // Check if the clicked target is within any dropdown
-            let clickedInsideDropdown = false;
-            dropdowns.forEach(dropdown => {
-                if (dropdown.contains(e.target)) {
-                    clickedInsideDropdown = true;
-                }
-            });
-            if (!clickedInsideDropdown) {
-                document.querySelectorAll('.dropdown-menu').forEach(menu => { // Hide all dropdown menus
-                    menu.classList.add('hidden');
-                });
-            }
+        // Event listener para el botón de mes siguiente
+        document.getElementById('g-next-month').addEventListener('click', () => {
+            gFechaActual.setMonth(gFechaActual.getMonth() + 1); // Avanza un mes
+            renderGridCalendar(); // Vuelve a dibujar el calendario
+        });
+
+        // --- Inicialización del calendario ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderGridCalendar(); // Dibuja el calendario cuando la página se carga por primera vez
+            actualizarResumenVentas(fechaSeleccionada); // Muestra el resumen de ventas del día actual
         });
     </script>
 </body>
