@@ -15,7 +15,7 @@ z<!DOCTYPE html>
             </div>
             <nav>
                 <ul class="flex space-x-4">
-                    <li><a href="#" class="hover:text-gray-300 active"><i class="fas fa-home"></i> Panel de Control</a></li>
+                    <li><a href="#" class="hover:text-gray-300"><i class="fas fa-home"></i> Panel de Control</a></li>
 
                     <li class="dropdown relative">
                         <a href="#" class="hover:text-gray-300"><i class="fas fa-chart-bar"></i> Ventas</a>
@@ -26,6 +26,7 @@ z<!DOCTYPE html>
                             <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Existencias de Productos</a></li>
                             <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Asignacion de Clientes</a></li>
                             <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Fichas Tecnicas</a></li>
+
                         </ul>
                     </li>
 
@@ -42,6 +43,7 @@ z<!DOCTYPE html>
                             <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Asigna Numero Fiscal</a></li>
                             <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Mis Solicitudes</a></li>
                             <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Contratos Repse</a></li>
+
                         </ul>
                     </li>
 
@@ -62,6 +64,7 @@ z<!DOCTYPE html>
                     <li><a href="#" class="hover:text-gray-300"><i class="fas fa-users"></i> Clientes</a></li>
 
                     <li><a href="#" class="hover:text-gray-300"><i class="fas fa-cog"></i> Configuración</a></li>
+
                 </ul>
             </nav>
         </div>
@@ -70,14 +73,7 @@ z<!DOCTYPE html>
             <span>Nombre Usuario</span>
         </div>
     </header>
-    <div class="main-content">
-        <header>
-            <h1>Panel de Control</h1>
-            <div class="user-profile">
-                <img src="profile.png" alt="User Profile" onerror="this.style.display='none'; this.onerror=null; const i = document.createElement('i'); i.className='fas fa-user-circle fa-2x'; this.parentNode.insertBefore(i, this.nextSibling);">
-                <span>Nombre Usuario</span>
-            </div>
-        </header>
+    <div class="main-content p-4">
         <main>
             <section class="summary-cards">
                 <div class="card">
@@ -223,5 +219,19 @@ z<!DOCTYPE html>
         </main>
     </div>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdowns = document.querySelectorAll('.dropdown');
+
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('mouseenter', function () {
+                    this.querySelector('.dropdown-menu').classList.remove('hidden');
+                });
+                dropdown.addEventListener('mouseleave', function () {
+                    this.querySelector('.dropdown-menu').classList.add('hidden');
+                });
+            });
+        });
+    </script>
 </body>
 </html>

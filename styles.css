@@ -8,19 +8,6 @@ body {
  flex-direction: column; /* Change to column for top navigation */
 }
 
-
-.sidebar nav ul li a {
-    display: flex;
-    align-items: center;
-    color: #bdc3c7; /* Light grey text */
-    text-decoration: none;
-    padding: 12px 15px;
-    margin: 5px 0;
-    border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-
 .main-content {
     padding: 20px;
     width: 100%; /* Take full width */
@@ -348,24 +335,5 @@ body {
   background-color: #218838;
 }
 
-
-/* Dropdown styles for the Ventas menu */
-.sidebar ul li.dropdown ul {
-    display: none;
-    position: static;
-    width: 100%;
-}
-
-.sidebar ul li.dropdown:hover ul {
-    display: block;
-}
-
-.sidebar ul li.dropdown ul li {
-    padding-left: 30px;
-}
-
-.sidebar ul li.dropdown ul li a{
-  color: #fff;
-}
 
 
