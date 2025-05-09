@@ -1,45 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesión</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="estilos-comintec.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comintec - Iniciar Sesión</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/login.css">
 </head>
-<body class="login-body">
-
-    <div class="login-container">
-        <div class="login-box">
-            <div class="text-center mb-4">
-                <img src="logo.png" alt="Logo de la Empresa" class="login-logo-img d-block mx-auto">
-            </div>
-            <form id="loginForm">
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Nombre de usuario" required value="gabriel">
-                    <label for="floatingInput">Usuario</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" required value="123456789">
-                    <label for="floatingPassword">Contraseña</label>
-                </div>
-
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">
-                            Recordarme
-                        </label>
-                    </div>
-                </div>
-
-                <button class="btn btn-primary w-100 btn-lg login-btn" type="submit">Iniciar Sesión</button>
-            </form>
+<body>
+  <div class="login-container">
+    <div class="login-background">
+      <!-- Círculos decorativos -->
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      
+      <!-- Caja de inicio de sesión -->
+      <div class="login-box">
+        <div class="login-header">
+          <div class="login-logo">
+            <div class="navbar-logo-img"></div>
+            <span>Comintec</span>
+          </div>
+          <h2>Iniciar Sesión</h2>
+          <p class="typing-text">Bienvenido de nuevo. Por favor ingresa tus credenciales para acceder al sistema.</p>
         </div>
-    </div>
+        
+        <form id="loginForm" class="login-form">
+          <div class="form-group">
+            <label for="username">
+              <i class="fas fa-user"></i>
+              <span>Usuario</span>
+            </label>
+            <input type="text" id="username" name="username" placeholder="Ingresa tu nombre de usuario" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="password">
+              <i class="fas fa-lock"></i>
+              <span>Contraseña</span>
+            </label>
+            <div class="password-input">
+              <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+              <button type="button" id="togglePassword" class="toggle-password">
+                <i class="far fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div id="loginErrorMessage" class="error-message"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="login.js"></script>
+          <button type="submit" class="login-button" id="loginBtn">
+            <span>Iniciar Sesión</span>
+            <i class="fas fa-arrow-right"></i>
+            <div class="login-button-ripple"></div>
+          </button>
+        </form>
+        
+        <div class="login-footer">
+          <p>© 2025 Comintec. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/page-transitions.js"></script>
+  <script src="js/login.js"></script>
 </body>
 </html>

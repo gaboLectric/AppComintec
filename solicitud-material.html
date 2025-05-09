@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comintec - Solicitud de Material</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+    }
+    
+    .form-select {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+      background-position: right 0.5rem center;
+      background-repeat: no-repeat;
+      background-size: 1.5em 1.5em;
+      appearance: none;
+    }
+    
+    .form-textarea {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      min-height: 100px;
+      resize: vertical;
+    }
+    
+    .form-button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    
+    .form-button:hover {
+      background-color: #2563eb;
+    }
+    
+    .form-button-secondary {
+      background-color: white;
+      color: #374151;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .form-button-secondary:hover {
+      background-color: #f3f4f6;
+    }
+    
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    
+    /* Modo oscuro */
+    .dark-mode .form-control,
+    .dark-mode .form-select,
+    .dark-mode .form-textarea {
+      background-color: #1f2937;
+      border-color: #374151;
+      color: #e5e7eb;
+    }
+    
+    .dark-mode .form-button-secondary {
+      background-color: #1f2937;
+      color: #e5e7eb;
+      border-color: #374151;
+    }
+    
+    .dark-mode .form-button-secondary:hover {
+      background-color: #374151;
+    }
+    
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <div class="navbar-logo">
+        <div class="navbar-logo-img"></div>
+        <span>Comintec</span>
+      </div>
+      
+      <div class="nav-menu" id="navMenu">
+        <!-- Primera fila de navegación -->
+        <div class="nav-menu-row">
+          <a href="index.html" class="nav-item">
+            <i class="fas fa-tachometer-alt"></i> Panel de Control
+          </a>
+          
+          <div class="nav-dropdown">
+            <a href="#" class="nav-item">
+              <i class="fas fa-chart-bar"></i> Ventas <i class="fas fa-chevron-down"></i>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="#" class="nav-dropdown-item">Agregar Cliente</a>
+              <a href="#" class="nav-dropdown-item">Mis Clientes</a>
+              <a href="#" class="nav-dropdown-item">Borrador de Cotización</a>
+              <a href="#" class="nav-dropdown-item">Existencias de Productos</a>
+              <a href="#" class="nav-dropdown-item">Asignación de Clientes</a>
+              <a href="#" class="nav-dropdown-item">Fichas Técnicas</a>
+            </div>
+          </div>
+          
+          <a href="#" class="nav-item">
+            <i class="fas fa-box"></i> Inventario
+          </a>
+          
+          <div class="nav-dropdown">
+            <a href="#" class="nav-item active">
+              <i class="fas fa-sliders-h"></i> Administración <i class="fas fa-chevron-down"></i>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="#" class="nav-dropdown-item">Solicitud de Viáticos</a>
+              <a href="solicitud-material.html" class="nav-dropdown-item">Solicitud de Material</a>
+              <a href="#" class="nav-dropdown-item">Solicitud de Tiempo</a>
+              <a href="#" class="nav-dropdown-item">Solicitud de Paquetería</a>
+              <a href="#" class="nav-dropdown-item">Asigna Número Fiscal</a>
+              <a href="#" class="nav-dropdown-item">Mis Solicitudes</a>
+              <a href="#" class="nav-dropdown-item">Contratos Repse</a>
+            </div>
+          </div>
+          
+          <a href="#" class="nav-item">
+            <i class="fas fa-shopping-cart"></i> Compras
+          </a>
+          
+          <a href="#" class="nav-item">
+            <i class="fas fa-wrench"></i> Servicio
+          </a>
+          
+          <a href="#" class="nav-item">
+            <i class="fas fa-balance-scale"></i> Metrología
+          </a>
+        </div>
+        
+        <!-- Segunda fila de navegación -->
+        <div class="nav-menu-row">
+          <a href="#" class="nav-item">
+            <i class="fas fa-file-alt"></i> Informes
+          </a>
+          
+          <a href="#" class="nav-item">
+            <i class="fas fa-laptop"></i> Sistemas
+          </a>
+          
+          <a href="#" class="nav-item">
+            <i class="fas fa-bullhorn"></i> Marketing
+          </a>
+          
+          <a href="#" class="nav-item">
+            <i class="fas fa-check-circle"></i> Calidad
+          </a>
+          
+          <a href="#" class="nav-item">
+            <i class="fas fa-users"></i> Clientes
+          </a>
+          
+          <a href="#" class="nav-item">
+            <i class="fas fa-cog"></i> Configuración
+          </a>
+        </div>
+      </div>
+      
+      <div class="user-menu">
+        <div class="notifications">
+          <button class="notification-btn">
+            <i class="far fa-bell"></i>
+          </button>
+          <button class="notification-btn">
+            <i class="far fa-envelope"></i>
+          </button>
+        </div>
+        
+        <div class="user-profile">
+          <div class="user-avatar">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100" alt="User profile">
+          </div>
+          <div class="user-info">
+            <div class="user-name">Carlos Méndez</div>
+            <div class="user-role">Administrador</div>
+          </div>
+        </div>
+        
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main class="main-content">
+    <div class="container">
+      <div class="dashboard-header">
+        <h1 class="page-title">Solicitud de Material</h1>
+        <button class="theme-toggle" id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Nueva Solicitud</h2>
+        </div>
+        <div class="card-content">
+          <form id="materialRequestForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="folio">Folio</label>
+                <input type="text" id="folio" class="form-control" readonly value="SOL-2024-003">
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label" for="date">Fecha</label>
+                <input type="date" id="date" class="form-control" value="2024-05-08">
+              </div>
+            </div>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="company">Empresa</label>
+                <input type="text" id="company" class="form-control" placeholder="Nombre de la empresa">
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label" for="requester">Solicitante</label>
+                <input type="text" id="requester" class="form-control" placeholder="Nombre del solicitante">
+              </div>
+            </div>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="quantity">Cantidad</label>
+                <input type="text" id="quantity" class="form-control" placeholder="Cantidad solicitada">
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label" for="materialType">Tipo de material</label>
+                <select id="materialType" class="form-select">
+                  <option value="">Seleccionar tipo</option>
+                  <option value="herramientas">Herramientas</option>
+                  <option value="oficina">Material de oficina</option>
+                  <option value="seguridad">Equipo de seguridad</option>
+                  <option value="electrónica">Componentes electrónicos</option>
+                  <option value="refacciones">Refacciones</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="description">Descripción</label>
+              <textarea id="description" class="form-textarea" placeholder="Descripción detallada del material solicitado"></textarea>
+            </div>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="model">Modelo (opcional)</label>
+                <input type="text" id="model" class="form-control" placeholder="Modelo del material">
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label" for="brand">Marca (opcional)</label>
+                <input type="text" id="brand" class="form-control" placeholder="Marca del material">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="specifications">Especificaciones adicionales (opcional)</label>
+              <textarea id="specifications" class="form-textarea" placeholder="Especificaciones técnicas adicionales"></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="supplier">Proveedor sugerido (opcional)</label>
+              <input type="text" id="supplier" class="form-control" placeholder="Proveedor sugerido">
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="notes">Notas adicionales (opcional)</label>
+              <textarea id="notes" class="form-textarea" placeholder="Notas o comentarios adicionales"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <button type="submit" class="form-button" id="submitRequest">Enviar solicitud</button>
+          <button type="button" class="form-button form-button-secondary" style="margin-left: 10px;" id="cancelRequest">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const submitBtn = document.getElementById('submitRequest');
+      const cancelBtn = document.getElementById('cancelRequest');
+      const form = document.getElementById('materialRequestForm');
+      
+      // Evento de envío del formulario
+      submitBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Validar campos requeridos
+        const requiredFields = ['company', 'requester', 'quantity', 'materialType', 'description'];
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+          const element = document.getElementById(field);
+          if (!element.value.trim()) {
+            element.style.borderColor = '#ef4444';
+            isValid = false;
+          } else {
+            element.style.borderColor = '';
+          }
+        });
+        
+        if (isValid) {
+          // Aquí normalmente harías una petición al servidor
+          alert('Solicitud enviada correctamente');
+          // Redireccionar a la página principal
+          window.location.href = 'index.html';
+        } else {
+          alert('Por favor, complete todos los campos obligatorios');
+        }
+      });
+      
+      // Evento de cancelar
+      cancelBtn.addEventListener('click', function() {
+        if (confirm('¿Está seguro que desea cancelar? Los datos no guardados se perderán.')) {
+          window.location.href = 'index.html';
+        }
+      });
+      
+      // Restaurar bordes al editar campos
+      form.addEventListener('input', function(e) {
+        if (e.target.tagName.toLowerCase() === 'input' ||
+            e.target.tagName.toLowerCase() === 'textarea' ||
+            e.target.tagName.toLowerCase() === 'select') {
+          e.target.style.borderColor = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
