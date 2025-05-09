@@ -1,8 +1,9 @@
 {
-  "routes": [
-    { "src": "^/$", "dest": "/login.html" }
-  ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/", "destination": "/login.html" },
+    {
+      "source": "/:path((?!api/|_next/|static/|favicon.ico|manifest.json|sw.js|.*\\..*).*)",
+      "destination": "/index.html"
+    }
   ]
 }
