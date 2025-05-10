@@ -624,6 +624,109 @@ body {
   border-collapse: collapse;
 }
 
+/* Estilos para las cards de área */
+.area-states {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.area-card {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.area-card:hover {
+  transform: translateY(-2px);
+}
+
+.area-icon {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #3b82f6;
+}
+
+.area-progress {
+  height: 4px;
+  background-color: #e5e7eb;
+  border-radius: 2px;
+  margin: 0.5rem 0;
+  overflow: hidden;
+}
+
+.area-progress-bar {
+  height: 100%;
+  background-color: #3b82f6;
+  transition: width 0.3s;
+}
+
+.area-progress-bar.pending {
+  background-color: #f97316;
+  width: 33%;
+}
+
+.area-progress-bar.review {
+  background-color: #34d399;
+  width: 66%;
+}
+
+.area-progress-bar.completed {
+  background-color: #10b981;
+  width: 100%;
+}
+
+.area-title {
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.area-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.area-btn {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.area-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.area-btn-pending {
+  background-color: #f97316;
+  color: white;
+}
+
+.area-btn-review {
+  background-color: #34d399;
+  color: white;
+}
+
+.area-btn-completed {
+  background-color: #10b981;
+  color: white;
+}
+
+.area-btn:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
 .material-table th,
 .material-table td {
   padding: 12px 15px;
