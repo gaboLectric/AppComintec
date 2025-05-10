@@ -102,25 +102,22 @@ document.addEventListener('DOMContentLoaded', function() {
       renderTasks();
     }
   }
-  
+
   // Función para marcar una tarea como completada o pendiente
   function toggleTaskCompleted(id) {
-    tasks = tasks.map(task => {
-      if (task.id === id) {
-        return { ...task, completed: !task.completed };
-      }
-      return task;
-    });
-    
-    renderTasks();
+    const taskIndex = tasks.findIndex(task => task.id === id);
+    if (taskIndex !== -1) {
+      tasks[taskIndex].completed = !tasks[taskIndex].completed;
+      renderTasks();
+    }
   }
-  
+
   // Función para eliminar una tarea
   function deleteTask(id) {
     tasks = tasks.filter(task => task.id !== id);
     renderTasks();
   }
-  
+
   // Función para mostrar u ocultar tareas completadas
   function toggleShowCompleted() {
     showCompleted = !showCompleted;
