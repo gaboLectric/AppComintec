@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+  <!--
+    SECCIÓN DE NAVEGACIÓN:
+    Aunque la navegación en sí no requiere acceso directo a la BD, algunos elementos como el perfil de usuario o notificaciones podrían cargar información de la BD.
+  -->
   <!-- Barra de navegación -->
   <nav class="navbar">
     <div class="container navbar-container">
@@ -17,6 +21,10 @@
         <span>Comintec</span>
       </div>
       
+      <!--
+        MENÚ DE NAVEGACIÓN:
+        Los elementos del menú pueden ser estáticos, pero las opciones dentro de los dropdowns podrían potencialmente cargarse o depender de permisos de usuario obtenidos de la BD.
+      -->
       <div class="nav-menu" id="navMenu">
         <!-- Primera fila de navegación -->
         <div class="nav-menu-row">
@@ -27,6 +35,9 @@
           <div class="nav-dropdown">
             <a href="#" class="nav-item">
               <i class="fas fa-chart-bar"></i> Ventas <i class="fas fa-chevron-down"></i>
+              <!--
+                SECCIÓN DE VENTAS: Los elementos dentro de este dropdown podrían enlazar a páginas que interactúan fuertemente con la BD para listar clientes, productos, cotizaciones, etc.
+              -->
             </a>
             <div class="nav-dropdown-menu">
               <a href="#" class="nav-dropdown-item">Agregar Cliente</a>
@@ -38,11 +49,18 @@
             </div>
           </div>
           
+          <!-- SECCIÓN DE INVENTARIO: Probablemente requiere leer y mostrar datos de productos, stock, etc. desde la BD. -->
           <a href="#" class="nav-item">
             <i class="fas fa-box"></i> Inventario
           </a>
           
           <div class="nav-dropdown">
+            <!--
+              SECCIÓN DE ADMINISTRACIÓN: Los elementos dentro de este dropdown dirigen a funcionalidades que gestionan datos (solicitudes, contratos, etc.), interactuando con la BD para crear, leer, actualizar y eliminar registros.
+              <CODE_BLOCK>
+              // Ejemplo de cómo se podría interactuar con la BD desde un link:
+              // window.location.href = `solicitud-material.html?userId=${currentUser.id}`; // Pasar ID de usuario obtenido de la BD</CODE_BLOCK>
+            -->
             <a href="#" class="nav-item">
               <i class="fas fa-sliders-h"></i> Administración <i class="fas fa-chevron-down"></i>
             </a>
@@ -57,29 +75,39 @@
             </div>
           </div>
           
+          <!-- SECCIÓN DE COMPRAS: Similar a Inventario y Ventas, gestionaría datos de proveedores, pedidos, etc. en la BD. -->
           <a href="#" class="nav-item">
             <i class="fas fa-shopping-cart"></i> Compras
           </a>
           
+          <!-- SECCIÓN DE SERVICIO: Podría gestionar tickets de servicio, historial, etc. en la BD. -->
           <a href="#" class="nav-item">
             <i class="fas fa-wrench"></i> Servicio
           </a>
           
+          <!-- SECCIÓN DE METROLOGÍA: Gestionaría datos relacionados con calibraciones, equipos de medición, etc. en la BD. -->
           <a href="#" class="nav-item">
             <i class="fas fa-balance-scale"></i> Metrología
           </a>
         </div>
         
         <!-- Segunda fila de navegación -->
+        <!--
+          SEGUNDA FILA DEL MENÚ:
+          Estos elementos también enlazarían a secciones con interacciones con la BD.
+        -->
         <div class="nav-menu-row">
+          <!-- SECCIÓN DE INFORMES: Requeriría leer y procesar grandes cantidades de datos de la BD para generar reportes. -->
           <a href="#" class="nav-item">
             <i class="fas fa-file-alt"></i> Informes
           </a>
           
+          <!-- SECCIÓN DE SISTEMAS: Podría gestionar usuarios, permisos, configuraciones que se almacenan en la BD. -->
           <a href="#" class="nav-item">
             <i class="fas fa-laptop"></i> Sistemas
           </a>
           
+          <!-- SECCIÓN DE MARKETING: Gestionaría campañas, leads, datos de clientes potenciales en la BD. -->
           <a href="#" class="nav-item">
             <i class="fas fa-bullhorn"></i> Marketing
           </a>
@@ -88,6 +116,7 @@
             <i class="fas fa-check-circle"></i> Calidad
           </a>
           
+          <!-- SECCIÓN DE CLIENTES: Gestión directa de la lista de clientes y sus detalles en la BD. -->
           <a href="#" class="nav-item">
             <i class="fas fa-users"></i> Clientes
           </a>
@@ -98,6 +127,11 @@
         </div>
       </div>
       
+      <!--
+        MENÚ DE USUARIO Y NOTIFICACIONES:
+        La información del usuario (nombre, rol) y las notificaciones/mensajes provendrían de la BD.
+        También, las acciones de clic en los botones de notificación podrían desencadenar lectura de datos de la BD.
+      -->
       <div class="user-menu">
         <div class="notifications">
           <button class="notification-btn">
@@ -109,6 +143,10 @@
         </div>
         
         <div class="user-profile">
+          <!--
+            INFO DE USUARIO:
+            La imagen, nombre y rol del usuario se cargarían idealmente desde la BD después del login.
+          -->
           <div class="user-avatar">
             <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100" alt="User profile">
           </div>
@@ -127,12 +165,29 @@
 
   <!-- Contenido principal -->
   <main class="main-content">
+    <!--
+      CONTENIDO PRINCIPAL DEL PANEL DE CONTROL:
+      Aquí es donde se mostrarán la mayoría de los datos obtenidos de la BD.
+    -->
     <div class="container">
       <div class="dashboard-header">
         <h1 class="page-title">Panel de Control</h1>
+        <!--
+          CAMBIAR TEMA:
+          Aunque no es directo a la BD, la preferencia del tema podría guardarse en la configuración del usuario en la BD.
+        -->
         <button class="theme-toggle" id="themeToggle">
           <i class="fas fa-moon"></i>
         </button>
+        <!--
+          <CODE_BLOCK>
+          // Placeholder para función que guarda preferencia de tema en BD
+          function saveThemePreference(theme) {
+            console.log(`Guardando preferencia de tema "${theme}" en la base de datos...`);
+            // Aquí iría la llamada a la API o función de BD
+            // Ejemplo: api.saveUserSettings({ theme: theme });
+          }</CODE_BLOCK>
+        -->
       </div>
       
       <!-- Sección de tarjetas stats -->
@@ -140,6 +195,21 @@
         <div class="card stats-card">
           <h4>Nuevos Clientes</h4>
           <p>5</p>
+          <!--
+            ESTADÍSTICAS:
+            Estos números (Nuevos Clientes, Tareas Pendientes) deben ser cargados desde la BD al cargar la página.
+          -->
+          <!--
+            <CODE_BLOCK>
+            // Placeholder para función que carga estadísticas
+            async function loadDashboardStats() {
+              console.log("Cargando estadísticas del dashboard desde la base de datos...");
+              // Aquí iría la llamada a la API para obtener los datos
+              // const stats = await api.getDashboardStats();
+              // Actualizar el DOM con los datos obtenidos
+              // document.querySelector('.stats-card h4 + p').innerText = stats.newClients;
+            }</CODE_BLOCK>
+          -->
         </div>
         
         <div class="card stats-card">
@@ -152,6 +222,12 @@
       <div class="grid grid-cols-3" style="margin-top: 20px;">
         <div class="card" style="grid-column: span 2;">
           <div class="card-header">
+            <!--
+              SECCIÓN CALENDARIO:
+              Aunque la lógica del calendario (mostrar días, meses) es principalmente JavaScript,
+              los *eventos* del calendario (si los hubiera) se cargarían desde la BD y se asociarían a fechas específicas.
+              Actualmente no hay visualización de eventos en el HTML, pero si se añaden, requerirían BD.
+            -->
             <h2 class="card-title">Calendario</h2>
             <div>Hoy es: <span id="currentDate">10 de mayo, 2025</span></div>
           </div>
@@ -186,6 +262,16 @@
         
         <div class="card">
           <div class="card-header">
+            <!--
+              SECCIÓN TAREAS:
+              Esta sección interactúa directamente con la BD para:
+              - Cargar la lista inicial de tareas (READ)
+              - Añadir nuevas tareas (CREATE)
+              - Marcar tareas como completadas (UPDATE)
+              - Filtrar tareas (READ con filtros)
+              - Eliminar tareas (DELETE) - aunque no hay botón de eliminar visible, es una operación común.
+            -->
+
             <h2 class="card-title">Tareas</h2>
             <button class="task-filter-btn" id="taskFilterBtn">
               <i class="fas fa-filter"></i> <span id="taskFilterText">Ocultar completadas</span>
@@ -203,6 +289,22 @@
                 <i class="fas fa-plus"></i> Añadir
               </button>
             </div>
+            <!--
+              <CODE_BLOCK>
+              // Placeholder para función que carga tareas
+              async function loadTasks() {
+                console.log("Cargando tareas desde la base de datos...");
+                // const tasks = await api.getTasksForUser(currentUser.id);
+                // Renderizar tareas en #taskList
+              }
+
+              // Placeholder para función que añade una tarea
+              async function addTask(taskText) {
+                console.log(`Añadiendo tarea "${taskText}" a la base de datos...`);
+                // await api.createTask({ text: taskText, completed: false, userId: currentUser.id });
+                // Recargar lista de tareas o añadir la nueva al DOM
+              }</CODE_BLOCK>
+            -->
           </div>
         </div>
       </div>
@@ -211,6 +313,12 @@
       <div class="grid grid-cols-3" style="margin-top: 20px;">
         <div class="card">
           <div class="card-header">
+            <!--
+              SECCIÓN ACTIVIDAD RECIENTE:
+              Esta lista mostraría eventos recientes del sistema (solicitudes aprobadas, nuevos clientes, etc.).
+              Estos datos se cargarían desde un log de actividad o tabla similar en la BD.
+              (READ operación principal)
+            -->
             <h2 class="card-title">Actividad Reciente</h2>
           </div>
           <div class="card-content">
@@ -257,6 +365,15 @@
         
         <div class="card" style="grid-column: span 2;">
           <div class="card-header">
+            <!--
+              SECCIÓN ESTADO DE ÁREAS:
+              El estado de las áreas (producción, ventas, etc.) y la posibilidad de "bloquear el flujo" sugiere
+              que esta información se gestionaría y actualizaría en la BD.
+              - Cargar estado inicial de áreas (READ)
+              - Cambiar estado de bloqueo (UPDATE)
+              La lista de áreas en sí también podría cargarse dinámicamente desde la BD.
+            -->
+
             <h2 class="card-title">Panel de Estado de Áreas</h2>
             <button class="area-lock-btn" id="areaLockBtn">
               <i class="fas fa-lock-open"></i> <span id="areaLockBtnText">Bloquear Flujo</span>
@@ -265,6 +382,19 @@
           <div class="card-content">
             <div class="area-states" id="areaStates">
               <!-- Las áreas se generarán con JavaScript -->
+              <!--
+                <CODE_BLOCK>
+                // Placeholder para función que carga estado de áreas
+                async function loadAreaStates() {
+                  console.log("Cargando estado de áreas desde la base de datos...");
+                  // const areaData = await api.getAreaStates();
+                  // Renderizar #areaStates
+                }
+
+                // Placeholder para función que actualiza estado de bloqueo
+                async function updateAreaLockStatus(isLocked) {
+                  console.log(`Actualizando estado de bloqueo en la base de datos a: ${isLocked}`);
+                  // await api.updateSystemLockStatus(isLocked);</CODE_BLOCK>
             </div>
           </div>
         </div>
@@ -273,6 +403,13 @@
       <!-- Solicitudes de Material -->
       <div class="grid grid-cols-1" style="margin-top: 20px;">
         <div class="card">
+          <!--
+            SECCIÓN SOLICITUDES DE MATERIAL:
+            Esta tabla muestra solicitudes recientes. Los datos de las solicitudes se cargarían desde la BD (READ).
+            El enlace "Ver todas" lleva a otra página que listaría todas las solicitudes, también desde la BD.
+            Las columnas (Folio, Fecha, Solicitante, Descripción, Estado) son atributos de la tabla de solicitudes en la BD.
+          -->
+
           <div class="card-header">
             <h2 class="card-title">Solicitudes de Material Recientes</h2>
             <a href="solicitud-material.html" class="card-link">Ver todas</a>
@@ -290,6 +427,14 @@
               </thead>
               <tbody id="materialRequestsTable">
                 <!-- Las solicitudes se generarán con JavaScript -->
+                <!--
+                  <CODE_BLOCK>
+                  // Placeholder para función que carga solicitudes de material
+                  async function loadRecentMaterialRequests() {
+                    console.log("Cargando solicitudes de material recientes desde la base de datos...");
+                    // const requests = await api.getRecentMaterialRequests(5); // Obtener, por ejemplo, las últimas 5
+                    // Renderizar las filas en #materialRequestsTable
+                  }</CODE_BLOCK>
               </tbody>
             </table>
           </div>

@@ -29,6 +29,13 @@
         </div>
         
         <form id="loginForm" class="login-form">
+          <!-- 
+            Sección del formulario de inicio de sesión.
+            Aquí se manejará la lógica de autenticación contra la base de datos.
+            
+            Se necesitarán operaciones de READ para verificar las credenciales del usuario.
+          -->
+
           <div class="form-group">
             <label for="username">
               <i class="fas fa-user"></i>
@@ -49,6 +56,12 @@
               </button>
             </div>
           </div>
+          
+          <!-- 
+            Sección para mostrar mensajes de error del login.
+            Esto puede incluir errores de credenciales incorrectas obtenidos después de la consulta a la base de datos.
+          -->
+
           
           <div id="loginErrorMessage" class="error-message"></div>
 
