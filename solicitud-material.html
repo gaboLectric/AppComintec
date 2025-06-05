@@ -141,23 +141,23 @@
           <h2 class="card-title">Nueva Solicitud</h2>
         </div>
         <div class="card-content">
-          <form id="materialRequestForm">
+          <form id="materialRequestForm" aria-label="Formulario de solicitud de material" role="form">
             <div class="form-grid">
               <div class="form-group">
                 <label class="form-label" for="folio">Folio</label>
-                <input type="text" id="folio" class="form-control" readonly value="SOL-2024-003">
+                <input type="text" id="folio" class="form-control" readonly value="SOL-2024-003" aria-label="Folio de solicitud">
               </div>
               
               <div class="form-group">
                 <label class="form-label" for="date">Fecha</label>
-                <input type="date" id="date" class="form-control" value="2024-05-08">
+                <input type="date" id="date" class="form-control" value="2024-05-08" aria-label="Fecha de solicitud">
               </div>
             </div>
             
             <div class="form-grid">
               <div class="form-group">
                 <label class="form-label" for="company">Empresa que solicita:</label>
-                <select id="company" class="form-select">
+                <select id="company" class="form-select" aria-label="Empresa que solicita">
                   <option value="">Seleccionar empresa</option>
                   <option value="comintec-mexico">COMINTEC DE MÉXICO S.A. DE C.V.</option>
                   <option value="metrological">METROLOGICAL COMINTEC SERVICES S.C.</option>
@@ -168,14 +168,14 @@
               
               <div class="form-group">
                 <label class="form-label" for="requester">Solicitante</label>
-                <input type="text" id="requester" class="form-control" placeholder="Nombre del solicitante">
+                <input type="text" id="requester" class="form-control" placeholder="Nombre del solicitante" aria-label="Nombre del solicitante">
               </div>
             </div>
             <div class="form-grid">
               <div class="form-group">
                 <label class="form-label" for="quantity">Cantidad</label>
-                <input type="text" id="quantity" class="form-control" placeholder="Ingresa un número entero">
-                <span id="quantityError" style="color: red; display: none;">Por favor, ingresa un número entero válido.</span>
+                <input type="text" id="quantity" class="form-control" placeholder="Ingresa un número entero" aria-label="Cantidad solicitada">
+                <span id="quantityError" style="color: red; display: none;" role="alert" aria-live="assertive" data-i18n="material.quantityError">Por favor, ingresa un número entero válido.</span>
                 <script>
                 document.getElementById('quantity').addEventListener('input', function(e) {
                   const value = e.target.value;
@@ -195,7 +195,7 @@
               
               <div class="form-group">
                 <label class="form-label" for="materialType">Tipo de material</label>
-                <select id="materialType" class="form-select">
+                <select id="materialType" class="form-select" aria-label="Tipo de material">
                   <option value="">Seleccionar tipo</option>
                   <option value="herramientas">Herramientas</option>
                   <option value="oficina">Material de oficina</option>
@@ -208,40 +208,40 @@
             
             <div class="form-group">
               <label class="form-label" for="description">Descripción</label>
-              <textarea id="description" class="form-textarea" placeholder="Descripción detallada del material solicitado"></textarea>
+              <textarea id="description" class="form-textarea" placeholder="Descripción detallada del material solicitado" aria-label="Descripción del material"></textarea>
             </div>
             
             <div class="form-grid">
               <div class="form-group">
                 <label class="form-label" for="model">Modelo (opcional)</label>
-                <input type="text" id="model" class="form-control" placeholder="Modelo del material">
+                <input type="text" id="model" class="form-control" placeholder="Modelo del material" aria-label="Modelo del material">
               </div>
               
               <div class="form-group">
                 <label class="form-label" for="brand">Marca (opcional)</label>
-                <input type="text" id="brand" class="form-control" placeholder="Marca del material">
+                <input type="text" id="brand" class="form-control" placeholder="Marca del material" aria-label="Marca del material">
               </div>
             </div>
             
             <div class="form-group">
               <label class="form-label" for="specifications">Especificaciones adicionales (opcional)</label>
-              <textarea id="specifications" class="form-textarea" placeholder="Especificaciones técnicas adicionales"></textarea>
+              <textarea id="specifications" class="form-textarea" placeholder="Especificaciones técnicas adicionales" aria-label="Especificaciones adicionales"></textarea>
             </div>
             
             <div class="form-group">
               <label class="form-label" for="supplier">Proveedor sugerido (opcional)</label>
-              <input type="text" id="supplier" class="form-control" placeholder="Proveedor sugerido">
+              <input type="text" id="supplier" class="form-control" placeholder="Proveedor sugerido" aria-label="Proveedor sugerido">
             </div>
             
             <div class="form-group">
               <label class="form-label" for="notes">Notas adicionales (opcional)</label>
-              <textarea id="notes" class="form-textarea" placeholder="Notas o comentarios adicionales"></textarea>
+              <textarea id="notes" class="form-textarea" placeholder="Notas o comentarios adicionales" aria-label="Notas adicionales"></textarea>
             </div>
           </form>
         </div>
         <div class="card-footer">
-          <button type="submit" class="form-button" id="submitRequest">Enviar solicitud</button>
-          <button type="button" class="form-button form-button-secondary" style="margin-left: 10px;" id="cancelRequest">Cancelar</button>
+          <button type="submit" class="form-button" id="submitRequest" aria-label="Enviar solicitud" data-i18n="material.submit">Enviar solicitud</button>
+          <button type="button" class="form-button form-button-secondary" style="margin-left: 10px;" id="cancelRequest" aria-label="Cancelar solicitud" data-i18n="material.cancel">Cancelar</button>
         </div>
       </div>
     </div>

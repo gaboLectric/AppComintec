@@ -1,3 +1,5 @@
+import { validateRequiredFields, showFieldError, clearFieldErrors } from './form-validation.js';
+
 // Funcionalidad de la página de inicio de sesión
 document.addEventListener('DOMContentLoaded', () => {
   const loginForm = document.getElementById('loginForm');
@@ -8,12 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const loginButtonRipple = document.querySelector('.login-button-ripple');
   const errorMessageDiv = document.getElementById('loginErrorMessage'); // Referencia al div de error
 
-  if (togglePasswordButton) {
+  if (togglePasswordButton && passwordInput) {
     togglePasswordButton.addEventListener('click', () => {
-      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-      passwordInput.setAttribute('type', type);
-      togglePasswordButton.querySelector('i').classList.toggle('fa-eye');
-      togglePasswordButton.querySelector('i').classList.toggle('fa-eye-slash');
+      const isPassword = passwordInput.getAttribute('type') === 'password';
+      passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+      const icon = togglePasswordButton.querySelector('i');
+      if (icon) {
+        icon.classList.toggle('fa-eye', !isPassword);
+        icon.classList.toggle('fa-eye-slash', isPassword);
+      }
     });
   }
 
@@ -76,63 +81,46 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   if (loginForm) {
-    loginForm.addEventListener('submit', (event) => {
-      event.preventDefault(); 
-      hideLoginError(); // Ocultar errores previos
-
-      const username = usernameInput.value.trim();
-      const password = passwordInput.value.trim();
-
-      const defaultUsername = 'admin';
-      const defaultPassword = 'admin123';
-
-      if (!username || !password) {
-        showLoginError('Por favor, ingresa tu usuario y contraseña.');
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      clearFieldErrors('#loginForm');
+      // Validación centralizada
+      const valid = validateRequiredFields('#loginForm', showFieldError);
+      if (!valid) {
+        showLoginError('Por favor, completa todos los campos obligatorios.');
         return;
       }
-
-      if (username === defaultUsername && password === defaultPassword) {
-        if (loginButton) {
-            const rippleContainer = loginButton.querySelector('.login-button-ripple') || document.createElement('div');
-            if (!loginButton.querySelector('.login-button-ripple')) {
-                rippleContainer.className = 'login-button-ripple';
-                loginButton.appendChild(rippleContainer);
-                rippleContainer.style.position = 'absolute';
-                rippleContainer.style.top = '0';
-                rippleContainer.style.left = '0';
-                rippleContainer.style.width = '100%';
-                rippleContainer.style.height = '100%';
-                rippleContainer.style.overflow = 'hidden';
-                rippleContainer.style.zIndex = '-1'; 
-            }
-            
-            const ripple = document.createElement('span');
-            const rect = rippleContainer.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            
-            ripple.style.width = ripple.style.height = `${size}px`;
-            ripple.style.left = `${(rippleContainer.offsetWidth / 2) - (size / 2)}px`;
-            ripple.style.top = `${(rippleContainer.offsetHeight / 2) - (size / 2)}px`;
-            
-            ripple.style.position = 'absolute';
-            ripple.style.borderRadius = '50%';
-            ripple.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
-            ripple.style.transform = 'scale(0)';
-            ripple.style.animation = 'ripple 0.6s linear';
-
-            rippleContainer.appendChild(ripple);
-
-            ripple.addEventListener('animationend', () => {
-              ripple.remove();
-            });
+      // Indicador de carga
+      loginButton.disabled = true;
+      loginButton.innerHTML = '<span class="spinner"></span> Iniciando...';
+      setTimeout(() => {
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value;
+        if (username === 'admin' && password === 'admin123') {
+          // Guardar usuario si está marcado el checkbox de recordar
+          const remember = document.getElementById('remember');
+          if (remember && remember.checked) {
+            localStorage.setItem('comintec_user', username);
+          } else {
+            localStorage.removeItem('comintec_user');
+          }
+          // Mostrar mensaje solo si falla la redirección
+          setTimeout(() => {
+            window.location.href = 'main.html';
+            setTimeout(() => {
+              if (!window.location.pathname.endsWith('main.html')) {
+                showLoginError('No se pudo acceder a la página principal.<br>Abre main.html manualmente o usa un servidor local para evitar restricciones del navegador.');
+                loginButton.disabled = false;
+                loginButton.innerHTML = '<span>Iniciar Sesión</span><i class="fas fa-arrow-right"></i><div class="login-button-ripple"></div>';
+              }
+            }, 2000);
+          }, 500);
+        } else {
+          showLoginError('Credenciales incorrectas. Usuario: admin, Contraseña: admin123');
+          loginButton.disabled = false;
+          loginButton.innerHTML = '<span>Iniciar Sesión</span><i class="fas fa-arrow-right"></i><div class="login-button-ripple"></div>';
         }
-        
-        setTimeout(() => {
-          navigateWithTransition('main.html'); // Usar la función de transición
-        }, 300); 
-      } else {
-        showLoginError('Usuario o contraseña incorrectos.');
-      }
+      }, 1200);
     });
   }
 

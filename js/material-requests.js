@@ -1,6 +1,10 @@
+import { validateRequiredFields, showFieldError, clearFieldErrors } from './form-validation.js';
+
 document.addEventListener('DOMContentLoaded', function() {
   // Elementos del DOM
   const materialRequestsTable = document.getElementById('materialRequestsTable');
+  const form = document.getElementById('materialRequestForm');
+  const submitBtn = document.getElementById('submitRequest');
   
   // Datos de solicitudes (normalmente vendrían de una API)
   const materialRequests = [
@@ -114,5 +118,27 @@ document.addEventListener('DOMContentLoaded', function() {
   function formatDate(date) {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     return date.toLocaleDateString('es-ES', options);
+  }
+  
+  if (form && submitBtn) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      clearFieldErrors('#materialRequestForm');
+      const valid = validateRequiredFields('#materialRequestForm', showFieldError);
+      if (!valid) {
+        const errorMsg = document.getElementById('quantityError');
+        if (errorMsg) errorMsg.style.display = 'inline';
+        submitBtn.disabled = false;
+        return;
+      }
+      // Indicador de carga
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="spinner"></span> Enviando...';
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Enviar solicitud';
+        // Aquí iría la lógica real de envío
+      }, 1200);
+    });
   }
 });

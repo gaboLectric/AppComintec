@@ -6,7 +6,7 @@
   <title>Comintec - Iniciar Sesión</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
@@ -28,7 +28,7 @@
           <p class="typing-text">Bienvenido de nuevo. Por favor ingresa tus credenciales para acceder al sistema.</p>
         </div>
         
-        <form id="loginForm" class="login-form">
+        <form id="loginForm" class="login-form" aria-label="Formulario de inicio de sesión" role="form" autocomplete="off">
           <!-- 
             Sección del formulario de inicio de sesión.
             Aquí se manejará la lógica de autenticación contra la base de datos.
@@ -38,21 +38,21 @@
 
           <div class="form-group">
             <label for="username">
-              <i class="fas fa-user"></i>
-              <span>Usuario</span>
+              <i class="fas fa-user" aria-hidden="true"></i>
+              <span data-i18n="login.username">Usuario</span>
             </label>
-            <input type="text" id="username" name="username" placeholder="Ingresa tu nombre de usuario" required>
+            <input type="text" id="username" name="username" placeholder="Ingresa tu nombre de usuario" required aria-required="true" aria-label="Nombre de usuario" autocomplete="username">
           </div>
           
           <div class="form-group">
             <label for="password">
-              <i class="fas fa-lock"></i>
-              <span>Contraseña</span>
+              <i class="fas fa-lock" aria-hidden="true"></i>
+              <span data-i18n="login.password">Contraseña</span>
             </label>
             <div class="password-input">
-              <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
-              <button type="button" id="togglePassword" class="toggle-password">
-                <i class="far fa-eye"></i>
+              <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required aria-required="true" aria-label="Contraseña" autocomplete="current-password">
+              <button type="button" id="togglePassword" class="toggle-password" aria-label="Mostrar u ocultar contraseña">
+                <i class="far fa-eye" aria-hidden="true"></i>
               </button>
             </div>
           </div>
@@ -63,11 +63,11 @@
           -->
 
           
-          <div id="loginErrorMessage" class="error-message"></div>
+          <div id="loginErrorMessage" class="error-message" role="alert" aria-live="assertive" style="display:none;" data-i18n="login.error"></div>
 
-          <button type="submit" class="login-button" id="loginBtn">
-            <span>Iniciar Sesión</span>
-            <i class="fas fa-arrow-right"></i>
+          <button type="submit" class="login-button" id="loginBtn" aria-label="Iniciar sesión">
+            <span data-i18n="login.submit">Iniciar Sesión</span>
+            <i class="fas fa-arrow-right" aria-hidden="true"></i>
             <div class="login-button-ripple"></div>
           </button>
         </form>
@@ -80,7 +80,7 @@
   </div>
   
   <script src="js/page-transitions.js"></script>
-  <script src="js/login.js"></script>
+  <script type="module" src="js/login.js"></script>
   <script>
     function handleLoginSuccess() {
       window.location.href = '/app'; // O '/dashboard', '/home', etc.

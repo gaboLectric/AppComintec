@@ -240,4 +240,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Placeholder for other main.js functionalities if any
   console.log("Main.js loaded and initialized. Default theme: light (if no preference saved).");
+
+  // Internacionalización básica (i18n)
+  const translations = {
+    es: {
+      'login.username': 'Usuario',
+      'login.password': 'Contraseña',
+      'login.submit': 'Iniciar Sesión',
+      'login.error': 'Credenciales incorrectas.',
+      'material.submit': 'Enviar solicitud',
+      'material.cancel': 'Cancelar',
+      'material.quantityError': 'Por favor, ingresa un número entero válido.'
+    },
+    en: {
+      'login.username': 'Username',
+      'login.password': 'Password',
+      'login.submit': 'Sign In',
+      'login.error': 'Incorrect credentials.',
+      'material.submit': 'Submit request',
+      'material.cancel': 'Cancel',
+      'material.quantityError': 'Please enter a valid integer.'
+    }
+  };
+
+  function translatePage(lang = 'es') {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+  }
+  // Llamar a translatePage('es') o translatePage('en') según preferencia del usuario
+  translatePage('es');
 });

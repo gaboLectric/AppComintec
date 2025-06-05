@@ -34,10 +34,6 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.container.navbar-container {
-  /* Puede que necesites ajustar esto si el container tiene su propio fondo */
-}
-
 .navbar-container {
   display: flex;
   justify-content: space-between;
@@ -756,11 +752,6 @@ body {
   color: white;
 }
 
-.area-btn:hover:not(:disabled) {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
 .material-table th,
 .material-table td {
   padding: 12px 15px;
@@ -1014,4 +1005,55 @@ body.fade-in {
 
 body.fade-out {
   opacity: 0;
+}
+
+.spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid #fff;
+  border-top: 2px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.field-error {
+  color: #ef4444;
+  font-size: 0.95em;
+  margin-top: 0.2em;
+  display: block;
+}
+
+.error-message[role="alert"] {
+  background: #fff0f0;
+  color: #b91c1c;
+  border: 1px solid #ef4444;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  margin-bottom: 1em;
+}
+
+.login-button[aria-disabled="true"], .form-button[aria-disabled="true"] {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Mejorar contraste de botones */
+.login-button, .form-button {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  transition: background 0.2s;
+}
+
+.login-button:focus, .form-button:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
 }
