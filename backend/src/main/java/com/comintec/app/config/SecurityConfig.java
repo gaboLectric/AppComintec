@@ -93,8 +93,13 @@ public class SecurityConfig {
                     "/h2-console/**"
                 ).permitAll()
                 .requestMatchers(
-                    "/api/test/public/**"
+                    "/api/test/public/**",
+                    "/api/secure/public",
+                    "/error"
                 ).permitAll()
+                // Endpoints protegidos
+                .requestMatchers("/api/secure/admin/**").hasRole("ADMIN")
+                .requestMatchers("/api/secure/user/**").hasAnyRole("USER", "ADMIN")
                 // Todas las demás solicitudes requieren autenticación
                 .anyRequest().authenticated()
         );
@@ -119,6 +124,11 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Collections.singletonList("*")); // Permitir cualquier origen durante el desarrollo
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(Arrays.asList("authorization", "content-type", "x-auth-token"));
+        configuration.setExposedHeaders(Collections.singletonList("x-auth-token"));
+        configuration.setAllowCredentials(true);
+        configuration.setMaxAge(3600L);
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "x-auth-token", "Content-Type", "Accept"));
         configuration.setAllowCredentials(true);

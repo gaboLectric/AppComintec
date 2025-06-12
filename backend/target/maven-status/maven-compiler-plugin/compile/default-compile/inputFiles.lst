@@ -1,4 +1,5 @@
 /home/rogeliovc/Comintec/AppComintec/backend/src/main/java/com/comintec/app/config/WebConfig.java
+/home/rogeliovc/Comintec/AppComintec/backend/src/main/java/com/comintec/app/controller/SecureController.java
 /home/rogeliovc/Comintec/AppComintec/backend/src/main/java/com/comintec/app/controller/ApiController.java
 /home/rogeliovc/Comintec/AppComintec/backend/src/main/java/com/comintec/app/security/JwtAuthenticationEntryPoint.java
 /home/rogeliovc/Comintec/AppComintec/backend/src/main/java/com/comintec/app/security/UserDetailsImpl.java

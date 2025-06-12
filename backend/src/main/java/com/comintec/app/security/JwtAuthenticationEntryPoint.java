@@ -30,15 +30,36 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         
+        String message = "Acceso no autorizado";
+        
+        // Proporcionar mensajes más descriptivos basados en el tipo de excepción
+        if (authException.getCause() != null) {
+            message = authException.getCause().getMessage();
+        } else if (authException.getMessage() != null) {
+            if (authException.getMessage().contains("Full authentication")) {
+                message = "Se requiere autenticación completa para acceder a este recurso";
+            } else if (authException.getMessage().contains("Bad credentials")) {
+                message = "Usuario o contraseña incorrectos";
+            } else if (authException.getMessage().contains("JWT")) {
+                message = "Token JWT inválido o expirado";
+            }
+        }
+        
         final Map<String, Object> body = new HashMap<>();
         body.put("status", HttpServletResponse.SC_UNAUTHORIZED);
         body.put("error", "Unauthorized");
-        body.put("message", "Credenciales inválidas o token expirado");
-        body.put("path", request.getServletPath());
+        body.put("message", message);
+        body.put("path", request.getRequestURI());
         body.put("timestamp", new Date());
         
-        final Gson gson = new Gson();
-        response.getWriter().write(gson.toJson(body));
-        response.getWriter().flush();
+        try {
+            final Gson gson = new Gson();
+            String jsonResponse = gson.toJson(body);
+            response.getWriter().write(jsonResponse);
+            response.getWriter().flush();
+        } catch (IOException e) {
+            logger.error("Error al escribir la respuesta de error de autenticación", e);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error interno del servidor");
+        }
     }
 }

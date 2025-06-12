@@ -54,23 +54,30 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                             authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                             
                             SecurityContextHolder.getContext().setAuthentication(authentication);
-                            logger.debug("Authenticated user: {}", username);
+                            logger.debug("Successfully authenticated user: {} with roles: {}", 
+                                username, userDetails.getAuthorities());
                         } else {
                             logger.warn("User not found or disabled: {}", username);
+                            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "User is disabled or not found");
+                            return;
                         }
                     } catch (Exception ex) {
                         logger.error("Error loading user details for username: " + username, ex);
+                        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Error loading user details");
+                        return;
                     }
                 } else {
                     logger.warn("Invalid JWT token");
+                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid JWT token");
+                    return;
                 }
             } else {
-                logger.trace("No JWT token found in request");
+                logger.trace("No JWT token found in request, proceeding to next filter");
             }
         } catch (Exception ex) {
-            logger.error("Error in JWT authentication filter", ex);
+            logger.error("Error in JWT authentication filter: {}", ex.getMessage(), ex);
             SecurityContextHolder.clearContext();
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Error processing authentication token");
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Error processing authentication token: " + ex.getMessage());
             return;
         }
 
