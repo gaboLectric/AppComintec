@@ -68,14 +68,16 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> 
                 auth.requestMatchers(
                         "/",
+                        "/*.html",
+                        "/*.css",
+                        "/*.js",
                         "/favicon.ico",
-                        "/**/*.png",
-                        "/**/*.gif",
-                        "/**/*.svg",
-                        "/**/*.jpg",
-                        "/**/*.html",
-                        "/**/*.css",
-                        "/**/*.js"
+                        "/static/**",
+                        "/resources/**",
+                        "/public/**",
+                        "/webjars/**",
+                        "/css/**",
+                        "/js/**"
                     ).permitAll()
                     .requestMatchers(
                         "/api/auth/**",

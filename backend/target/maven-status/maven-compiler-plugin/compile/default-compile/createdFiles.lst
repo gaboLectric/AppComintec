@@ -1,8 +1,8 @@
 com/comintec/app/repository/UserRepository.class
 com/comintec/app/dto/LoginRequest.class
 com/comintec/app/security/JwtTokenProvider.class
-com/comintec/app/config/SecurityConfig.class
 com/comintec/app/dto/JwtAuthenticationResponse.class
+com/comintec/app/config/SecurityConfig.class
 com/comintec/app/service/impl/UserDetailsServiceImpl.class
 com/comintec/app/security/JwtAuthenticationEntryPoint.class
 com/comintec/app/model/Role$RoleName.class
@@ -12,7 +12,7 @@ com/comintec/app/controller/ApiController.class
 com/comintec/app/security/JwtAuthenticationFilter.class
 com/comintec/app/AppApplication.class
 com/comintec/app/service/AuthService.class
-com/comintec/app/controller/AuthController.class
 com/comintec/app/config/WebConfig.class
+com/comintec/app/controller/AuthController.class
 com/comintec/app/security/UserDetailsImpl.class
 com/comintec/app/controller/TestController.class
