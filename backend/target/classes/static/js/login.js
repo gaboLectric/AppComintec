@@ -124,10 +124,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const savedUser = localStorage.getItem('comintec_user');
-  if (savedUser) {
+  // Cargar datos guardados si existen
+  const savedUser = localStorage.getItem('username');
+  const rememberMe = localStorage.getItem('remember_me');
+  
+  if (savedUser && rememberMe === 'true') {
     usernameInput.value = savedUser;
     document.getElementById('remember').checked = true;
+    passwordInput.focus();
+  } else {
+    // Limpiar datos de sesión si no se marcó recordar
+    localStorage.removeItem('auth_token');
+    localStorage.removeItem('username');
+    localStorage.removeItem('fullName');
   }
 
   document.querySelectorAll('.shape').forEach(shape => {
