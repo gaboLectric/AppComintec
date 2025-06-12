@@ -55,44 +55,62 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        // Asegurarnos de que usamos BCrypt con fuerza 10 (valor por defecto)
+        return new BCryptPasswordEncoder(10);
     }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        // Configuración básica
         http
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable())
             .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .authorizeHttpRequests(auth -> 
-                auth.requestMatchers(
-                        "/",
-                        "/*.html",
-                        "/*.css",
-                        "/*.js",
-                        "/favicon.ico",
-                        "/static/**",
-                        "/resources/**",
-                        "/public/**",
-                        "/webjars/**",
-                        "/css/**",
-                        "/js/**"
-                    ).permitAll()
-                    .requestMatchers(
-                        "/api/auth/**",
-                        "/h2-console/**",
-                        "/api/test/public/**"
-                    ).permitAll()
-                    .anyRequest().authenticated()
-            );
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
-        // Agregar filtro JWT
-        http.authenticationProvider(authenticationProvider());
+        // Configuración de autorización
+        http.authorizeHttpRequests(auth -> 
+            auth
+                // Permitir acceso sin autenticación a los endpoints públicos
+                .requestMatchers(
+                    "/",
+                    "/*.html",
+                    "/*.css",
+                    "/*.js",
+                    "/favicon.ico",
+                    "/static/**",
+                    "/resources/**",
+                    "/public/**",
+                    "/webjars/**",
+                    "/css/**",
+                    "/js/**"
+                ).permitAll()
+                .requestMatchers(
+                    "/api/auth/**"
+                ).permitAll()
+                // Permitir acceso a la consola H2 solo en desarrollo
+                .requestMatchers(
+                    "/h2-console/**"
+                ).permitAll()
+                .requestMatchers(
+                    "/api/test/public/**"
+                ).permitAll()
+                // Todas las demás solicitudes requieren autenticación
+                .anyRequest().authenticated()
+        );
+
+        // Asegurarse de que el filtro JWT se ejecute antes del filtro de autenticación de nombre de usuario y contraseña
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+
+        // Configurar autenticación
+        http.authenticationProvider(authenticationProvider());
         
-        // Para acceder a la consola H2
-        http.headers(headers -> headers.frameOptions(frameOption -> frameOption.sameOrigin()));
+        // Configuración para la consola H2 (solo para desarrollo)
+        http.headers(headers -> headers
+            .frameOptions(frameOption -> frameOption.sameOrigin())
+            .cacheControl(cache -> {})
+            .contentTypeOptions(contentType -> {})
+        );
         
         return http.build();
     }
@@ -100,9 +118,11 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Collections.singletonList("http://localhost:8080"));
+        configuration.setAllowedOrigins(Collections.singletonList("*")); // Permitir cualquier origen durante el desarrollo
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
-        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "x-auth-token"));
+        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "x-auth-token", "Content-Type", "Accept"));
+        configuration.setAllowCredentials(true);
+        configuration.setMaxAge(3600L);
         configuration.setExposedHeaders(Collections.singletonList("x-auth-token"));
         configuration.setAllowCredentials(true);
         

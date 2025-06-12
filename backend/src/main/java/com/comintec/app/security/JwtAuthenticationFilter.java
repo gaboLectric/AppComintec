@@ -37,18 +37,41 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
         try {
             String jwt = getJwtFromRequest(request);
-            if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
-                String username = tokenProvider.getUsernameFromJWT(jwt);
-
-                UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
-                        userDetails, null, userDetails.getAuthorities());
-                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-
-                SecurityContextHolder.getContext().setAuthentication(authentication);
+            
+            if (StringUtils.hasText(jwt)) {
+                logger.debug("JWT Token found in request");
+                
+                if (tokenProvider.validateToken(jwt)) {
+                    String username = tokenProvider.getUsernameFromJWT(jwt);
+                    logger.debug("JWT Token validated for user: {}", username);
+                    
+                    try {
+                        UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+                        
+                        if (userDetails != null && userDetails.isEnabled()) {
+                            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+                                    userDetails, null, userDetails.getAuthorities());
+                            authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                            
+                            SecurityContextHolder.getContext().setAuthentication(authentication);
+                            logger.debug("Authenticated user: {}", username);
+                        } else {
+                            logger.warn("User not found or disabled: {}", username);
+                        }
+                    } catch (Exception ex) {
+                        logger.error("Error loading user details for username: " + username, ex);
+                    }
+                } else {
+                    logger.warn("Invalid JWT token");
+                }
+            } else {
+                logger.trace("No JWT token found in request");
             }
         } catch (Exception ex) {
-            logger.error("Could not set user authentication in security context", ex);
+            logger.error("Error in JWT authentication filter", ex);
+            SecurityContextHolder.clearContext();
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Error processing authentication token");
+            return;
         }
 
         filterChain.doFilter(request, response);
