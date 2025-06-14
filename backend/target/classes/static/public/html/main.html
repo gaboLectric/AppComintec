@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comintec - Panel de Control</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <div class="navbar-logo">
+        <div class="navbar-logo-img"></div>
+        <span>Comintec</span>
+      </div>
+      
+      <div class="nav-menu" id="navMenu">
+        <!-- Primera fila de navegación -->
+        <div class="nav-menu-row">
+          <div class="nav-dropdown">
+            <a href="#" class="nav-item"><i class="fas fa-sliders-h"></i> Administración <i class="fas fa-chevron-down"></i></a>
+            <div class="nav-dropdown-menu">
+              <a href="#" class="nav-dropdown-item">Solicitud de Viáticos</a>
+              <a href="solicitud-material.html" class="nav-dropdown-item">Solicitud de Material</a>
+              <a href="#" class="nav-dropdown-item">Solicitud de Tiempo</a>
+              <a href="#" class="nav-dropdown-item">Solicitud de Paquetería</a>
+              <a href="#" class="nav-dropdown-item">Asigna Número Fiscal</a>
+              <a href="#" class="nav-dropdown-item">Mis Solicitudes</a>
+              <a href="#" class="nav-dropdown-item">Contratos Repse</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-item"><i class="fas fa-check-circle"></i> Calidad <i class="fas fa-chevron-down"></i></a>
+            <div class="nav-dropdown-menu">
+              <a href="#" class="nav-dropdown-item">Auditorías de Calidad (Ref: 050)</a>
+              <a href="#" class="nav-dropdown-item">No Conformidades (Ref: 051)</a>
+              <a href="#" class="nav-dropdown-item">Acciones Correctivas (Ref: 052)</a>
+              <a href="#" class="nav-dropdown-item">Indicadores de Calidad (Ref: 053)</a>
+              <a href="#" class="nav-dropdown-item">Documentos de Calidad (Ref: 054)</a>
+              <a href="#" class="nav-dropdown-item">Reportes de Calidad (Ref: 055)</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-item"><i class="fas fa-shopping-cart"></i> Compras</a>
+          </div>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-item"><i class="fas fa-users"></i> Clientes <i class="fas fa-chevron-down"></i></a>
+            <div class="nav-dropdown-menu">
+              <a href="#" class="nav-dropdown-item">Gestión de Clientes (Ref: 056)</a>
+              <a href="#" class="nav-dropdown-item">Historial de Clientes (Ref: 057)</a>
+              <a href="#" class="nav-dropdown-item">Categorización de Clientes (Ref: 058)</a>
+              <a href="#" class="nav-dropdown-item">Reportes de Clientes (Ref: 059)</a>
+              <a href="#" class="nav-dropdown-item">Satisfacción de Clientes (Ref: 060)</a>
+              <a href="#" class="nav-dropdown-item">Historial de Compras (Ref: 061)</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-item"><i class="fas fa-file-alt"></i> Informes <i class="fas fa-chevron-down"></i></a>
+            <div class="nav-dropdown-menu">
+              <a href="#" class="nav-dropdown-item">Informes de Ventas (Ref: 032)</a>
+              <a href="#" class="nav-dropdown-item">Informes de Inventario (Ref: 033)</a>
+              <a href="#" class="nav-dropdown-item">Informes de Servicio (Ref: 034)</a>
+              <a href="#" class="nav-dropdown-item">Informes de Metrología (Ref: 035)</a>
+              <a href="#" class="nav-dropdown-item">Informes de Calidad (Ref: 036)</a>
+              <a href="#" class="nav-dropdown-item">Informes Personalizados (Ref: 037)</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-item"><i class="fas fa-box"></i> Inventario <i class="fas fa-chevron-down"></i></a>
+            <div class="nav-dropdown-menu">
+              <a href="#" class="nav-dropdown-item">Stock Actual</a>
+              <a href="#" class="nav-dropdown-item">Entradas de Stock</a>
+              <a href="#" class="nav-dropdown-item">Salidas de Stock</a>
+              <a href="#" class="nav-dropdown-item">Historial de Movimientos</a>
+              <a href="#" class="nav-dropdown-item">Reorden de Inventario</a>
+              <a href="#" class="nav-dropdown-item">Reporte de Inventario</a>
+            </div>
+          </div>
+        </div>
+        <!-- Segunda fila de navegación -->
+        <div class="nav-menu-row">
+          <div class="nav-dropdown">
+            <a href="#" class="nav-item"><i class="fas fa-laptop"></i> Sistemas <i class="fas fa-chevron-down"></i></a>
+            <div class="nav-dropdown-menu">
+              <a href="#" class="nav-dropdown-item">Gestión de Usuarios (Ref: 038)</a>
+              <a href="#" class="nav-dropdown-item">Permisos y Roles (Ref: 039)</a>
+              <a href="#" class="nav-dropdown-item">Configuración del Sistema (Ref: 040)</a>
+              <a href="#" class="nav-dropdown-item">Integraciones (Ref: 041)</a>
+              <a href="#" class="nav-dropdown-item">Auditoría del Sistema (Ref: 042)</a>
+              <a href="#" class="nav-dropdown-item">Backup y Restauración (Ref: 043)</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-item"><i class="fas fa-bullhorn"></i> Marketing <i class="fas fa-chevron-down"></i></a>
+            <div class="nav-dropdown-menu">
+              <a href="#" class="nav-dropdown-item">Campañas de Marketing (Ref: 044)</a>
+              <a href="#" class="nav-dropdown-item">Gestión de Leads (Ref: 045)</a>
+              <a href="#" class="nav-dropdown-item">Análisis de Marketing (Ref: 046)</a>
+              <a href="#" class="nav-dropdown-item">Email Marketing (Ref: 047)</a>
+              <a href="#" class="nav-dropdown-item">Social Media (Ref: 048)</a>
+              <a href="#" class="nav-dropdown-item">Reportes de Marketing (Ref: 049)</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-item"><i class="fas fa-balance-scale"></i> Metrología <i class="fas fa-chevron-down"></i></a>
+            <div class="nav-dropdown-menu">
+              <a href="#" class="nav-dropdown-item">Calibraciones Pendientes (Ref: 026)</a>
+              <a href="#" class="nav-dropdown-item">Historial de Calibraciones (Ref: 027)</a>
+              <a href="#" class="nav-dropdown-item">Certificados de Calibración (Ref: 028)</a>
+              <a href="#" class="nav-dropdown-item">Equipos de Medición (Ref: 029)</a>
+              <a href="#" class="nav-dropdown-item">Programa de Calibración (Ref: 030)</a>
+              <a href="#" class="nav-dropdown-item">Reportes de Metrología (Ref: 031)</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-item"><i class="fas fa-wrench"></i> Servicio <i class="fas fa-chevron-down"></i></a>
+            <div class="nav-dropdown-menu">
+              <a href="#" class="nav-dropdown-item">Solicitudes de Servicio</a>
+              <a href="#" class="nav-dropdown-item">Historial de Servicios </a>
+              <a href="#" class="nav-dropdown-item">Gestión de Técnicos</a>
+              <a href="#" class="nav-dropdown-item">Reportes de Servicio</a>
+              <a href="#" class="nav-dropdown-item">Inventario de Herramientas</a>
+              <a href="#" class="nav-dropdown-item">Calendario de Servicios</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-item"><i class="fas fa-chart-bar"></i> Ventas <i class="fas fa-chevron-down"></i></a>
+            <div class="nav-dropdown-menu">
+              <a href="#" class="nav-dropdown-item">Agregar Cliente</a>
+              <a href="#" class="nav-dropdown-item">Mis Clientes</a>
+              <a href="borrador-cotizaciones.html" class="nav-dropdown-item">Borrador de Cotización</a>
+              <a href="#" class="nav-dropdown-item">Existencias de Productos</a>
+              <a href="#" class="nav-dropdown-item">Asignación de Clientes</a>
+              <a href="#" class="nav-dropdown-item">Fichas Técnicas</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-item"><i class="fas fa-cog"></i> Configuración <i class="fas fa-chevron-down"></i></a>
+            <div class="nav-dropdown-menu">
+              <a href="#" class="nav-dropdown-item">Configuración General (Ref: 062)</a>
+              <a href="#" class="nav-dropdown-item">Configuración de Usuarios (Ref: 063)</a>
+              <a href="#" class="nav-dropdown-item">Configuración de Roles (Ref: 064)</a>
+              <a href="#" class="nav-dropdown-item">Configuración de Permisos (Ref: 065)</a>
+              <a href="#" class="nav-dropdown-item">Configuración de Modulos (Ref: 066)</a>
+              <a href="#" class="nav-dropdown-item">Configuración de Integraciones (Ref: 067)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="user-menu">
+        <div class="notifications">
+          <button class="notification-btn">
+            <i class="far fa-bell"></i>
+          </button>
+          <button class="notification-btn">
+            <i class="far fa-envelope"></i>
+          </button>
+        </div>
+        
+        <div class="user-profile">
+          <div class="user-avatar">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100" alt="User profile">
+          </div>
+          <div class="user-info">
+            <div class="user-name">Carlos Méndez</div>
+            <div class="user-role">Administrador</div>
+          </div>
+        </div>
+        
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main class="main-content">
+    <div class="container">
+      <div class="dashboard-header">
+        <h1 class="page-title">Panel de Control</h1>
+        <button class="theme-toggle" id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+      
+      <!-- Sección de tarjetas stats -->
+      <div class="grid grid-cols-2">
+        <div class="card stats-card">
+          <h4>Nuevos Clientes</h4>
+          <p>5</p>
+        </div>
+        
+        <div class="card stats-card">
+          <h4>Tareas Pendientes</h4>
+          <p>3</p>
+        </div>
+      </div>
+      
+      <!-- Calendario y Tareas -->
+      <div class="grid grid-cols-3" style="margin-top: 20px;">
+        <div class="card" style="grid-column: span 2;">
+          <div class="card-header">
+            <h2 class="card-title">Calendario</h2>
+            <div>Hoy es: <span id="currentDate">10 de mayo, 2025</span></div>
+          </div>
+          <div class="card-content">
+            <div class="calendar-container">
+              <div class="calendar-header">
+                <div class="calendar-nav">
+                  <button class="calendar-nav-btn" id="prevMonth">
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <h3 class="calendar-month" id="currentMonth">Mayo 2025</h3>
+                  <button class="calendar-nav-btn" id="nextMonth">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="calendar-grid" id="calendarGrid">
+                <!-- Días de la semana -->
+                <div class="calendar-weekday">Dom</div>
+                <div class="calendar-weekday">Lun</div>
+                <div class="calendar-weekday">Mar</div>
+                <div class="calendar-weekday">Mié</div>
+                <div class="calendar-weekday">Jue</div>
+                <div class="calendar-weekday">Vie</div>
+                <div class="calendar-weekday">Sáb</div>
+                
+                <!-- Los días se generarán con JavaScript -->
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Tareas</h2>
+            <button class="task-filter-btn" id="taskFilterBtn">
+              <i class="fas fa-filter"></i> <span id="taskFilterText">Ocultar completadas</span>
+            </button>
+          </div>
+          <div class="card-content">
+            <div class="task-list" id="taskList">
+              <!-- Las tareas se generarán con JavaScript -->
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="task-input-group">
+              <input type="text" class="task-input" id="newTaskInput" placeholder="Añadir nueva tarea...">
+              <button class="task-add-btn" id="addTaskBtn">
+                <i class="fas fa-plus"></i> Añadir
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div>
+      
+      <!-- Actividad y Estado de Áreas -->
+      <div class="grid grid-cols-3" style="margin-top: 20px;">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Actividad Reciente</h2>
+          </div>
+          <div class="card-content">
+            <div class="activity-list">
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="activity-content">
+                  <div class="activity-title">Solicitud de material aprobada</div>
+                  <div class="activity-time">Hace 30 minutos</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <i class="fas fa-plus"></i>
+                </div>
+                <div class="activity-content">
+                  <div class="activity-title">Nuevo cliente agregado</div>
+                  <div class="activity-time">Hace 2 horas</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="activity-content">
+                  <div class="activity-title">Cotización #1234 generada</div>
+                  <div class="activity-time">Hace 3 horas</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <i class="fas fa-dolly"></i>
+                </div>
+                <div class="activity-content">
+                  <div class="activity-title">Actualización de inventario</div>
+                  <div class="activity-time">Hace 5 horas</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card" style="grid-column: span 2;">
+          <div class="card-header">
+            <h2 class="card-title">Panel de Estado de Áreas</h2>
+            <button class="area-lock-btn" id="areaLockBtn">
+              <i class="fas fa-lock-open"></i> <span id="areaLockBtnText">Bloquear Flujo</span>
+            </button>
+          </div>
+          <div class="card-content">
+            <div class="area-states" id="areaStates">
+              <!-- Las áreas se generarán con JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Solicitudes de Material -->
+      <div class="grid grid-cols-1" style="margin-top: 20px;">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Solicitudes de Material</h2>
+          </div>
+          <div class="card-content">
+            <table class="material-requests-table">
+              <thead>
+                <tr>
+                  <th>Folio</th>
+                  <th>Fecha</th>
+                  <th>Solicitante</th>
+                  <th>Descripción</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody id="dashboardMaterialRequestsTable">
+                <!-- Las solicitudes se generarán con JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/page-transitions.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script src="/js/tasks.js"></script>
+  <script src="/js/areas.js"></script>
+  <script src="/js/material-requests.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

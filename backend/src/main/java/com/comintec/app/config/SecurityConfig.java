@@ -78,12 +78,15 @@ public class SecurityConfig {
                     "/*.css",
                     "/*.js",
                     "/favicon.ico",
+                    "/vite.svg",
                     "/static/**",
                     "/resources/**",
                     "/public/**",
                     "/webjars/**",
                     "/css/**",
-                    "/js/**"
+                    "/js/**",
+                    "/assets/**",
+                    "/html/**"
                 ).permitAll()
                 .requestMatchers(
                     "/api/auth/**"

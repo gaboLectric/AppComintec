@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Borrador Cotizaciones</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="form-page-container">
+    <h1 class="form-title">Borrador Cotizaciones</h1>
+    <a href="main.html" class="btn btn-primary" style="margin-bottom: 1rem;">Menú</a>
+    <form class="universal-form" id="cotizacionForm">
+      <div class="form-group">
+        <input type="text" class="form-input" placeholder="Ingresa número de Cotización" required>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+      </div>
+    </form>
+    <div class="cotizaciones-table-container">
+      <table class="universal-table">
+        <tbody>
+          <!-- Aquí se mostrarán los resultados de la búsqueda -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="/js/borrador-cotizaciones.js"></script>
+</body>
+</html>
