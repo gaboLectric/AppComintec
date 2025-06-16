@@ -1,5 +1,6 @@
 package com.comintec.app.config;
 
+import com.comintec.app.security.IpAuthenticationFilter;
 import com.comintec.app.security.JwtAuthenticationEntryPoint;
 import com.comintec.app.security.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
@@ -64,47 +65,63 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
-            .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+        http
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+            .csrf(csrf -> csrf.disable())
+            .exceptionHandling(exception -> exception
+                .authenticationEntryPoint(unauthorizedHandler)
+            )
+            .sessionManagement(session -> session
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            )
             .authorizeHttpRequests(auth -> auth
+                // Permitir acceso a recursos estáticos
                 .requestMatchers(
                     "/",
-                    "/*.html",
-                    "/*.css",
-                    "/*.js",
                     "/favicon.ico",
-                    "/vite.svg",
-                    "/static/**",
-                    "/resources/**",
-                    "/public/**",
-                    "/webjars/**",
+                    "/index.html",
+                    "/html/**",
                     "/css/**",
                     "/js/**",
                     "/assets/**",
-                    "/html/**"
+                    "/static/**",
+                    "/vite.svg"
                 ).permitAll()
+                // Permitir acceso a archivos estáticos comunes
                 .requestMatchers(
-                    "/api/auth/**"
+                    "/*.css",
+                    "/*.js",
+                    "/*.map",
+                    "/*.png",
+                    "/*.jpg",
+                    "/*.jpeg",
+                    "/*.gif",
+                    "/*.ico",
+                    "/*.svg",
+                    "/*.woff",
+                    "/*.woff2",
+                    "/*.ttf",
+                    "/*.eot"
                 ).permitAll()
-                // Permitir acceso a la consola H2 solo en desarrollo
+                // Permitir acceso a endpoints de autenticación y documentación
                 .requestMatchers(
-                    "/h2-console/**"
-                ).permitAll()
-                .requestMatchers(
-                    "/api/test/public/**",
-                    "/api/secure/public",
-                    "/error"
+                    "/api/auth/**",
+                    "/error",
+                    "/v3/api-docs/**",
+                    "/swagger-ui/**",
+                    "/swagger-ui.html",
+                    "/h2-console/**",
+                    "/actuator/health"
                 ).permitAll()
                 // Endpoints protegidos
                 .requestMatchers("/api/secure/admin/**").hasRole("ADMIN")
                 .requestMatchers("/api/secure/user/**").hasAnyRole("USER", "ADMIN")
                 // Todas las demás solicitudes requieren autenticación
                 .anyRequest().authenticated()
-        );
-
-        // Asegurarse de que el filtro JWT se ejecute antes del filtro de autenticación de nombre de usuario y contraseña
-        http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+            )
+            // Add IP filter before JWT filter
+            .addFilterBefore(ipAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         // Configurar autenticación
         http.authenticationProvider(authenticationProvider());
@@ -122,15 +139,25 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        // Allow Vite dev server and any other necessary origins
+        // Allow frontend and development servers
         configuration.setAllowedOrigins(Arrays.asList(
-            "http://localhost:5173",  // Vite default dev server
-            "http://localhost:5175",  // Vite dev server (alternative port)
-            "http://localhost:8080"   // Backend itself
+            "http://localhost:3000",   // React default port
+            "http://localhost:5173",   // Vite default dev server
+            "http://localhost:8080"    // Backend
         ));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
-        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "x-auth-token", "Accept"));
-        configuration.setExposedHeaders(Collections.singletonList("x-auth-token"));
+        configuration.setAllowedHeaders(Arrays.asList(
+            "Authorization", 
+            "Content-Type", 
+            "x-auth-token", 
+            "Accept",
+            "X-Requested-With",
+            "Cache-Control"
+        ));
+        configuration.setExposedHeaders(Arrays.asList(
+            "x-auth-token",
+            "Authorization"
+        ));
         configuration.setAllowCredentials(true);
         configuration.setMaxAge(3600L);
         

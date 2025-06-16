@@ -13,6 +13,8 @@
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/config/WebConfig.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/security/JwtAuthenticationFilter.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/controller/SecureController.java
+/home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/config/IpFilterConfig.java
+/home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/security/IpAuthenticationFilter.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/dto/request/CustomerRequest.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/config/SecurityConfig.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/dto/response/CustomerResponse.java
