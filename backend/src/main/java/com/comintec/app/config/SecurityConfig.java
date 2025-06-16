@@ -31,13 +31,16 @@ public class SecurityConfig {
     private final UserDetailsService userDetailsService;
     private final JwtAuthenticationEntryPoint unauthorizedHandler;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
+    private final IpAuthenticationFilter ipAuthenticationFilter;
 
     public SecurityConfig(UserDetailsService userDetailsService, 
                          JwtAuthenticationEntryPoint unauthorizedHandler,
-                         JwtAuthenticationFilter jwtAuthenticationFilter) {
+                         JwtAuthenticationFilter jwtAuthenticationFilter,
+                         IpAuthenticationFilter ipAuthenticationFilter) {
         this.userDetailsService = userDetailsService;
         this.unauthorizedHandler = unauthorizedHandler;
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+        this.ipAuthenticationFilter = ipAuthenticationFilter;
     }
 
     @Bean
@@ -61,17 +64,10 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        // Configuración básica
-        http
-            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-            .csrf(csrf -> csrf.disable())
-            .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-
-        // Configuración de autorización
-        http.authorizeHttpRequests(auth -> 
-            auth
-                // Permitir acceso sin autenticación a los endpoints públicos
+        http.cors().and().csrf().disable()
+            .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+            .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
                     "/",
                     "/*.html",
