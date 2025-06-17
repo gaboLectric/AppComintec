@@ -81,46 +81,38 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   if (loginForm) {
-    loginForm.addEventListener('submit', function(e) {
+    loginForm.addEventListener('submit', async function(e) {
       e.preventDefault();
       clearFieldErrors('#loginForm');
-      // Validación centralizada
       const valid = validateRequiredFields('#loginForm', showFieldError);
       if (!valid) {
         showLoginError('Por favor, completa todos los campos obligatorios.');
         return;
       }
-      // Indicador de carga
       loginButton.disabled = true;
       loginButton.innerHTML = '<span class="spinner"></span> Iniciando...';
-      setTimeout(() => {
-        const username = usernameInput.value.trim();
-        const password = passwordInput.value;
-        if (username === 'admin' && password === 'admin123') {
-          // Guardar usuario si está marcado el checkbox de recordar
-          const remember = document.getElementById('remember');
-          if (remember && remember.checked) {
-            localStorage.setItem('comintec_user', username);
-          } else {
-            localStorage.removeItem('comintec_user');
-          }
-          // Mostrar mensaje solo si falla la redirección
-          setTimeout(() => {
-            window.location.href = 'main.html';
-            setTimeout(() => {
-              if (!window.location.pathname.endsWith('main.html')) {
-                showLoginError('No se pudo acceder a la página principal.<br>Abre main.html manualmente o usa un servidor local para evitar restricciones del navegador.');
-                loginButton.disabled = false;
-                loginButton.innerHTML = '<span>Iniciar Sesión</span><i class="fas fa-arrow-right"></i><div class="login-button-ripple"></div>';
-              }
-            }, 2000);
-          }, 500);
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value;
+      try {
+        const response = await fetch('/api/auth/signin', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+        if (response.ok) {
+          // Guardar token si lo necesitas: const data = await response.json(); localStorage.setItem('auth_token', data.token);
+          window.location.href = 'main.html';
         } else {
-          showLoginError('Credenciales incorrectas. Usuario: admin, Contraseña: admin123');
+          const error = await response.json();
+          showLoginError(error.message || 'Credenciales incorrectas.');
           loginButton.disabled = false;
           loginButton.innerHTML = '<span>Iniciar Sesión</span><i class="fas fa-arrow-right"></i><div class="login-button-ripple"></div>';
         }
-      }, 1200);
+      } catch (err) {
+        showLoginError('Error de red o servidor.');
+        loginButton.disabled = false;
+        loginButton.innerHTML = '<span>Iniciar Sesión</span><i class="fas fa-arrow-right"></i><div class="login-button-ripple"></div>';
+      }
     });
   }
 
