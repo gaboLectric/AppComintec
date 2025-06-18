@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "copy-static": "rm -rf ../backend/src/main/resources/static/html ../backend/src/main/resources/static/css ../backend/src/main/resources/static/js && cp -r public/html ../backend/src/main/resources/static/html && cp -r public/css ../backend/src/main/resources/static/css && cp -r public/js ../backend/src/main/resources/static/js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.10",
@@ -29,6 +30,7 @@
     "globals": "^16.0.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.10",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-plugin-static-copy": "^3.0.2"
   }
 }

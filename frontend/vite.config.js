@@ -1,34 +1,21 @@
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
-import { resolve } from 'path'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [tailwindcss()],
-  publicDir: 'public',
+  plugins: [
+    tailwindcss(),
+    viteStaticCopy({
+      targets: [
+        { src: 'public/html', dest: '' },
+        { src: 'public/css', dest: '' },
+        { src: 'public/js', dest: '' },
+      ]
+    })
+  ],
   build: {
     outDir: '../backend/src/main/resources/static',
     emptyOutDir: true,
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'public/html/main.html'),
-        index: resolve(__dirname, 'public/html/index.html'),
-        login: resolve(__dirname, 'public/html/login.html'),
-        borrador: resolve(__dirname, 'public/html/borrador-cotizaciones.html'),
-        solicitud: resolve(__dirname, 'public/html/solicitud-material.html'),
-      },
-      output: {
-        // Mantener estructura de carpetas para legacy html
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
-            return 'css/[name][extname]';
-          }
-          if (assetInfo.name && assetInfo.name.endsWith('.js')) {
-            return 'js/[name][extname]';
-          }
-          return 'assets/[name][extname]';
-        },
-      },
-    },
+    assetsDir: '.',
   },
 })

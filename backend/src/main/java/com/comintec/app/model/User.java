@@ -44,4 +44,11 @@ public class User {
     public boolean hasRole(String roleName) {
         return this.roles.stream().anyMatch(role -> role.getName().equals(roleName));
     }
+
+    public boolean getActive() {
+        return active;
+    }
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 }

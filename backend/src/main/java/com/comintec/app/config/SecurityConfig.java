@@ -75,17 +75,25 @@ public class SecurityConfig {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
             .authorizeHttpRequests(auth -> auth
-                // Permitir acceso a recursos estáticos
+                // Permitir acceso a recursos estáticos y páginas de autenticación
                 .requestMatchers(
                     "/",
-                    "/favicon.ico",
                     "/index.html",
-                    "/html/**",
+                    "/html/index.html",
+                    "/main.html",
+                    "/html/main.html",
+                    "/usuarios.html",
+                    "/html/usuarios.html",
                     "/css/**",
                     "/js/**",
                     "/assets/**",
                     "/static/**",
-                    "/vite.svg"
+                    "/vite.svg",
+                    "/favicon.ico"
+                ).permitAll()
+                // Permitir acceso a la autenticación
+                .requestMatchers(
+                    "/api/auth/**"
                 ).permitAll()
                 // Permitir acceso a archivos estáticos comunes
                 .requestMatchers(

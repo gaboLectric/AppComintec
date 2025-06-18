@@ -96,12 +96,30 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         const response = await fetch('/api/auth/signin', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
           body: JSON.stringify({ username, password })
         });
+        
         if (response.ok) {
-          // Guardar token si lo necesitas: const data = await response.json(); localStorage.setItem('auth_token', data.token);
-          window.location.href = 'main.html';
+          const data = await response.json();
+          console.log('Login response:', data);
+          
+          // Verificar si el token está en la respuesta
+          const token = data.accessToken || data.token;
+          if (token) {
+            console.log('Setting token in localStorage');
+            localStorage.setItem('token', token);
+            // Verificar que el token se guardó correctamente
+            console.log('Token stored in localStorage:', localStorage.getItem('token'));
+            // Redirigir a la página principal - usando la ruta correcta
+            window.location.href = '/html/main.html';
+          } else {
+            console.error('No token found in response:', data);
+            showLoginError('No se recibió el token de autenticación');
+          }
         } else {
           const error = await response.json();
           showLoginError(error.message || 'Credenciales incorrectas.');

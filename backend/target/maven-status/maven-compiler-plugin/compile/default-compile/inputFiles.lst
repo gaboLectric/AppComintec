@@ -5,11 +5,14 @@
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/config/DataLoader.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/dto/LoginRequest.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/controller/CustomerController.java
+/home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/service/UserService.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/repository/CustomerRepository.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/mapper/CustomerMapper.java
+/home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/service/impl/UserServiceImpl.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/model/Customer.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/service/CustomerService.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/controller/TestController.java
+/home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/controller/UserController.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/config/WebConfig.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/security/JwtAuthenticationFilter.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/controller/SecureController.java
@@ -26,6 +29,8 @@
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/dto/JwtAuthenticationResponse.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/service/AuthService.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/exception/ResourceNotFoundException.java
+/home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/dto/request/UserRequest.java
+/home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/dto/response/UserResponse.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/config/OpenApiConfig.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/model/User.java
 /home/gabolectric/development/AppComintec/backend/src/main/java/com/comintec/app/service/impl/UserDetailsServiceImpl.java
