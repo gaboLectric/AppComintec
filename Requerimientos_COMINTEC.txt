@@ -1,0 +1,122 @@
+
+Requerimientos para la herramienta Web de COMINTEC
+
+1. Objetivos del Sistema
+
+1. ¿Cuál es el propósito principal que debería cumplir esta herramienta?
+- Automatizar el proceso general de ventas.
+
+2. ¿Qué procesos actuales se desean mejorar o automatizar con esta plataforma?
+- Todos: ventas, administración, inventario, logística, entrega de informes de calibración, capacitación, etc.
+
+2. Usuarios del Sistema
+
+1. ¿Qué tipos de usuarios utilizarán la herramienta?
+- Personal de todas las áreas con los alcances que le corresponden.
+
+2. ¿Cuántas personas habrá por tipo de usuario (Aproximado)?
+- Administrador: 1 (sistemas)
+- Responsables de áreas
+- Usuarios
+
+3. ¿Qué nivel de acceso o permisos debería tener cada uno?
+
+Tipo de Usuario       | Número Aproximado | Acciones dentro del sistema
+--------------------- | ----------------- | -----------------------------
+Administrador         | 2                 | Todas las actividades
+Responsables de áreas | 15                | Actividades en su área
+Usuarios              | 30                | Visualizar y alimentar según su área
+
+3. Funcionalidades Esperadas
+
+Ventas:
+1. Notificación de alta de proyectos y clientes, alertas relacionadas con ventas
+2. Estadísticos de ventas (Facturación)
+3. Visualización de ítems de almacén
+4. Descarga de cotizaciones (PDF, Excel, Word)
+5. Visualización de OC, cotizaciones, métodos de pago, certificados, reportes, entregas
+6. Estatus del proyecto (etapas y avances)
+7. Filtros de clientes por nombre, estado, morosidad
+8. Enlace con correo
+9. Visualización de todas las áreas sin edición
+10. Segmentación de proyectos/servicios/equipos
+11. Cotizar desde el celular
+
+Administración:
+1. Notificación de liberación de proyectos
+2. Estadísticos de venta
+3. Inventario en tiempo real
+4. Descarga de datos en Excel
+5. Alertas por solicitud de material
+6. Escáner QR para inventario
+7. Alerta al área de informes por pago/crédito
+
+Metrología:
+1. Calendario de autorizaciones con notificaciones
+2. Asignación de equipos con notificaciones
+3. Alertas de calibración/resurtimiento MRC
+4. Visualización de inventario de herramientas
+
+Informes:
+1. Status de informes con múltiples opciones y tiempos
+2. Asignación automática y rápida de folios
+3. Historial de folios editable, filtrado por sede (GDL)
+4. Estadísticos mensuales con gráficas
+
+Logística:
+- Estatus de proyectos por color
+- Descargar/generar estadísticos por área
+- Agenda visible para todos
+- Envío de correos y recordatorios de servicios
+- Adjuntar archivos varios (IMSS, listas, etc.)
+- Generar hojas de servicio y recepción
+- Notificación a Metrología al asignar servicio
+- Comentarios en notificaciones
+- Solicitud de facturas
+- Entrega de equipos con datos
+
+RH:
+- Capacitaciones en perfiles
+- Solo RH puede borrar evaluaciones < 8 o asignar nuevas
+- Notificación a logística sobre capacitaciones
+- Listado de pendientes, agenda, asistentes, ponentes
+- Historial y evaluación de ponentes
+- Certificado al aprobar capacitación y guardado en expediente
+- Expediente personal en perfil
+
+Calidad:
+- Procedimientos visibles solo editables por Calidad
+- Links de Qpro con alertas
+- Seguimiento a minutas, quejas, no conformidades, etc.
+
+Reportes:
+- Generables y descargables en Excel y PDF
+
+Notificaciones:
+- Sí: asignación, tiempo restante, stock mínimo, vigencias, capacitaciones, ponencias, reuniones, autorizaciones, evaluaciones, renovación de hologramas
+
+4. Información Técnica y Preferencias
+
+1. Integraciones necesarias: Contpaq, Outlook, OpenOffice, Android, Google Forms
+2. Respaldo automático mensual
+
+5. Seguridad y Administración
+
+1. Solo el administrador puede crear/eliminar usuarios
+
+6. Observaciones Adicionales
+
+- Formación con links de videos y evaluaciones autorizadas por RH
+- Notificación a RH 15 días antes del 3er mes del colaborador
+- Carga de expediente contractual y laboral
+- Tablero de eventos (ej. Expo)
+- Agenda personal
+- Sincronización con checador biométrico
+- Mensaje de cumpleaños
+- Soporte de imágenes PNG como evidencia
+- Carga/visualización de fichas técnicas
+
+¿Requerimientos legales? No
+
+Comentarios generales:
+- Intuitiva, agradable, accesible desde móviles

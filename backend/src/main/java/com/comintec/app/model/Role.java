@@ -2,8 +2,6 @@ package com.comintec.app.model;
 
 import lombok.Data;
 import jakarta.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Data
 @Entity
@@ -20,9 +18,6 @@ public class Role {
     
     @Column(length = 255)
     private String description;
-    
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users = new HashSet<>();
     
     public enum RoleName {
         ROLE_USER,

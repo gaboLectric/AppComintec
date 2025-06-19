@@ -73,33 +73,39 @@ function renderUsersTable(users) {
   if (!users || users.length === 0) {
     usersTableBody.innerHTML = `
       <tr>
-        <td colspan="7" style="text-align: center; padding: 20px;">
+        <td colspan="5" style="text-align: center; padding: 20px;">
           No se encontraron usuarios
         </td>
       </tr>`;
     return;
   }
-  
-  usersTableBody.innerHTML = users.map(user => `
-    <tr>
-      <td>${user.id}</td>
-      <td>${user.username}</td>
-      <td>${user.firstName} ${user.lastName}</td>
-      <td>${user.email}</td>
-      <td>${formatRole(user.role)}</td>
-      <td><span class="status-${user.active ? 'active' : 'inactive'}">
-        ${user.active ? 'Activo' : 'Inactivo'}
-      </span></td>
-      <td>
-        <button class="action-btn edit-btn" data-id="${user.id}" title="Editar">
-          <i class="fas fa-edit"></i>
-        </button>
-        <button class="action-btn delete-btn" data-id="${user.id}" title="Eliminar">
-          <i class="fas fa-trash-alt"></i>
-        </button>
-      </td>
-    </tr>
-  `).join('');
+  usersTableBody.innerHTML = users.map(user => {
+    // Tomar solo el primer rol válido (ADMIN o USER) de este usuario
+    let mainRole = '';
+    if (Array.isArray(user.roles)) {
+      if (user.roles.includes('ROLE_ADMIN')) mainRole = 'ADMIN';
+      else if (user.roles.includes('ROLE_USER')) mainRole = 'USER';
+      else if (user.roles.length > 0) mainRole = user.roles[0].replace('ROLE_', '');
+    }
+    return `
+      <tr>
+        <td>${user.id}</td>
+        <td>${user.username}</td>
+        <td>${formatRole(mainRole)}</td>
+        <td><span class="status-${user.active ? 'active' : 'inactive'}">
+          ${user.active ? 'Activo' : 'Inactivo'}
+        </span></td>
+        <td>
+          <button class="action-btn edit-btn" data-id="${user.id}" title="Editar">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button class="action-btn delete-btn" data-id="${user.id}" title="Eliminar">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+    `;
+  }).join('');
   
   // Agregar event listeners a los botones de editar y eliminar
   document.querySelectorAll('.edit-btn').forEach(btn => {
@@ -138,26 +144,26 @@ async function showEditUserModal(userId) {
         'Content-Type': 'application/json'
       }
     });
-    
     if (!response.ok) {
       throw new Error('Error al cargar los datos del usuario');
     }
-    
     const user = await response.json();
-    
-    // Llenar el formulario con los datos del usuario
     document.getElementById('userId').value = user.id;
     document.getElementById('username').value = user.username;
-    document.getElementById('email').value = user.email;
-    document.getElementById('firstName').value = user.firstName || '';
-    document.getElementById('lastName').value = user.lastName || '';
-    document.getElementById('role').value = user.role || 'USER';
+    // Seleccionar el primer rol válido
+    let mainRole = 'USER';
+    if (Array.isArray(user.roles)) {
+      if (user.roles.includes('ROLE_ADMIN')) mainRole = 'ADMIN';
+      else if (user.roles.includes('ROLE_USER')) mainRole = 'USER';
+      else if (user.roles.length > 0) mainRole = user.roles[0].replace('ROLE_', '');
+    }
+    document.getElementById('role').value = mainRole;
     document.getElementById('status').value = user.active ? 'true' : 'false';
-    
-    // Ocultar campos de contraseña en edición
+    // Ocultar y deshabilitar campos de contraseña en edición
     passwordGroup.style.display = 'none';
     confirmPasswordGroup.style.display = 'none';
-    
+    document.getElementById('password').required = false;
+    document.getElementById('confirmPassword').required = false;
     modalTitle.textContent = 'Editar Usuario';
     userModal.style.display = 'flex';
   } catch (error) {
@@ -171,46 +177,36 @@ async function showEditUserModal(userId) {
 // Manejar envío del formulario
 async function handleUserSubmit(e) {
   e.preventDefault();
-  
   const userId = document.getElementById('userId').value;
   const isEdit = !!userId;
-  
-  // Validar contraseña si es un nuevo usuario
+  // Solo validar contraseña si es alta
   if (!isEdit) {
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
-    
     if (password !== confirmPassword) {
       showError('Las contraseñas no coinciden');
       return;
     }
-    
     if (password.length < 6) {
       showError('La contraseña debe tener al menos 6 caracteres');
       return;
     }
   }
-  
+  // Mapear el rol seleccionado al formato backend (ROLE_ADMIN o ROLE_USER)
+  let selectedRole = document.getElementById('role').value;
+  let backendRole = selectedRole === 'ADMIN' ? 'ROLE_ADMIN' : 'ROLE_USER';
   const userData = {
     username: document.getElementById('username').value,
-    email: document.getElementById('email').value,
-    firstName: document.getElementById('firstName').value,
-    lastName: document.getElementById('lastName').value,
-    role: document.getElementById('role').value,
-    active: document.getElementById('status').value === 'true'
+    active: document.getElementById('status').value === 'true',
+    roles: [backendRole]
   };
-  
-  // Solo incluir la contraseña si es un nuevo usuario
   if (!isEdit) {
     userData.password = document.getElementById('password').value;
   }
-  
   try {
     showLoading();
     let response;
-    
     if (isEdit) {
-      // Actualizar usuario existente
       response = await fetch(`${API_BASE_URL}/${userId}`, {
         method: 'PUT',
         headers: {
@@ -220,7 +216,6 @@ async function handleUserSubmit(e) {
         body: JSON.stringify(userData)
       });
     } else {
-      // Crear nuevo usuario
       response = await fetch(API_BASE_URL, {
         method: 'POST',
         headers: {
@@ -230,12 +225,10 @@ async function handleUserSubmit(e) {
         body: JSON.stringify(userData)
       });
     }
-    
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(errorData.message || 'Error al guardar el usuario');
     }
-    
     hideUserModal();
     showSuccess(isEdit ? 'Usuario actualizado correctamente' : 'Usuario creado correctamente');
     loadUsers();
@@ -299,7 +292,8 @@ function formatRole(role) {
   const roles = {
     'ADMIN': 'Administrador',
     'USER': 'Usuario',
-    'MANAGER': 'Gerente'
+    'ROLE_ADMIN': 'Administrador',
+    'ROLE_USER': 'Usuario'
   };
   return roles[role] || role;
 }

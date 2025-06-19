@@ -62,8 +62,7 @@ public class AuthServiceImpl implements AuthService {
             // 5. Retornar la respuesta con el token
             return new JwtAuthenticationResponse(
                 jwt,
-                user.getUsername(),
-                user.getFullName()
+                user.getUsername()
             );
             
         } catch (AuthenticationException e) {

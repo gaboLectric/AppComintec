@@ -52,8 +52,6 @@ public class DataLoader {
             User admin = new User();
             admin.setUsername("admin");
             admin.setPassword(passwordEncoder.encode("admin123"));
-            admin.setFullName("Administrador del Sistema");
-            admin.setEmail("admin@comintec.com");
             admin.setActive(true);
             
             // Asignar rol de administrador
