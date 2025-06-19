@@ -16,6 +16,9 @@ public class UserRequest {
 
     private Set<String> roles;
 
+    private Long departmentId; // ID del departamento asignado (null para admins)
+    private Boolean isManager = false; // true si es manager del departamento
+
     // Getters y setters
     public String getUsername() { return username; }
     public void setUsername(String username) { this.username = username; }
@@ -25,4 +28,8 @@ public class UserRequest {
     public void setActive(Boolean active) { this.active = active; }
     public Set<String> getRoles() { return roles; }
     public void setRoles(Set<String> roles) { this.roles = roles; }
+    public Long getDepartmentId() { return departmentId; }
+    public void setDepartmentId(Long departmentId) { this.departmentId = departmentId; }
+    public Boolean getIsManager() { return isManager; }
+    public void setIsManager(Boolean isManager) { this.isManager = isManager; }
 }

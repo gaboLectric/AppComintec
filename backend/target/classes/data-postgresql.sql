@@ -237,8 +237,8 @@ INSERT INTO roles (name) VALUES ('ROLE_ADMIN') ON CONFLICT (name) DO NOTHING;
 
 -- Create admin user (password: password)
 -- The password is 'password' encoded with BCrypt (strength 10)
-INSERT INTO users (username, password, full_name, email, active) 
-VALUES ('admin', '$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HZWzG3YB1tlRy.fqvM/BG', 'Administrador', 'admin@comintec.com', true)
+INSERT INTO users (username, password, active) 
+VALUES ('admin', '$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HZWzG3YB1tlRy.fqvM/BG', true)
 ON CONFLICT (username) DO NOTHING;
 
 -- Assign admin role to admin user
@@ -250,8 +250,8 @@ ON CONFLICT (user_id, role_id) DO NOTHING;
 
 -- Create regular user (password: password)
 -- The password is 'password' encoded with BCrypt (strength 10)
-INSERT INTO users (username, password, full_name, email, active) 
-VALUES ('usuario', '$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HZWzG3YB1tlRy.fqvM/BG', 'Usuario Normal', 'usuario@comintec.com', true)
+INSERT INTO users (username, password, active) 
+VALUES ('usuario', '$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HZWzG3YB1tlRy.fqvM/BG', true)
 ON CONFLICT (username) DO NOTHING;
 
 -- Assign user role to regular user
