@@ -58,7 +58,7 @@
             <version>3.0.2</version>
         </dependency>
         
-        <!-- PostgreSQL Database -->
+        <!-- Database -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -104,11 +104,11 @@
             <version>1.5.5.Final</version>
         </dependency>
         
-        <!-- H2 Database para pruebas -->
+        <!-- H2 Database para pruebas y desarrollo local -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <scope>test</scope>
+            <scope>runtime</scope>
         </dependency>
         
         <!-- Documentación API -->

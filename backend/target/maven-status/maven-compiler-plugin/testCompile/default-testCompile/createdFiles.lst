@@ -1,1 +1,3 @@
+com/comintec/app/integration/ProjectServiceIntegrationTest.class
 com/comintec/app/service/CustomerServiceTest.class
+com/comintec/app/integration/ProjectControllerIntegrationTest.class

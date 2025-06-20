@@ -80,11 +80,10 @@ function renderUsersTable(users) {
     return;
   }
   usersTableBody.innerHTML = users.map(user => {
-    // Tomar solo el primer rol válido (ADMIN, MANAGER o USER) de este usuario
+    // Tomar solo el primer rol válido (ADMIN o USER) de este usuario
     let mainRole = '';
     if (Array.isArray(user.roles)) {
       if (user.roles.includes('ROLE_ADMIN')) mainRole = 'ADMIN';
-      else if (user.roles.includes('ROLE_MANAGER')) mainRole = 'MANAGER';
       else if (user.roles.includes('ROLE_USER')) mainRole = 'USER';
       else if (user.roles.length > 0) mainRole = user.roles[0].replace('ROLE_', '');
     }
@@ -155,7 +154,6 @@ async function showEditUserModal(userId) {
     let mainRole = 'USER';
     if (Array.isArray(user.roles)) {
       if (user.roles.includes('ROLE_ADMIN')) mainRole = 'ADMIN';
-      else if (user.roles.includes('ROLE_MANAGER')) mainRole = 'MANAGER';
       else if (user.roles.includes('ROLE_USER')) mainRole = 'USER';
       else if (user.roles.length > 0) mainRole = user.roles[0].replace('ROLE_', '');
     }
@@ -169,7 +167,8 @@ async function showEditUserModal(userId) {
     modalTitle.textContent = 'Editar Usuario';
     userModal.style.display = 'flex';
   } catch (error) {
-    showError(error.message || 'Error al cargar los datos del usuario');
+    console.error('Error:', error);
+    showError('Error al cargar los datos del usuario');
   } finally {
     hideLoading();
   }
@@ -193,11 +192,9 @@ async function handleUserSubmit(e) {
       return;
     }
   }
-  // Mapear el rol seleccionado al formato backend (ROLE_ADMIN, ROLE_MANAGER o ROLE_USER)
+  // Mapear el rol seleccionado al formato backend (ROLE_ADMIN o ROLE_USER)
   let selectedRole = document.getElementById('role').value;
-  let backendRole = 'ROLE_USER';
-  if (selectedRole === 'ADMIN') backendRole = 'ROLE_ADMIN';
-  else if (selectedRole === 'MANAGER') backendRole = 'ROLE_MANAGER';
+  let backendRole = selectedRole === 'ADMIN' ? 'ROLE_ADMIN' : 'ROLE_USER';
   const userData = {
     username: document.getElementById('username').value,
     active: document.getElementById('status').value === 'true',
@@ -294,10 +291,8 @@ function hideDeleteModal() {
 function formatRole(role) {
   const roles = {
     'ADMIN': 'Administrador',
-    'MANAGER': 'Responsable',
     'USER': 'Usuario',
     'ROLE_ADMIN': 'Administrador',
-    'ROLE_MANAGER': 'Responsable',
     'ROLE_USER': 'Usuario'
   };
   return roles[role] || role;

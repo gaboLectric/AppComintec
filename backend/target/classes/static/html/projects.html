@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comintec – Proyectos (Ventas)</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* Estilos específicos para la página de proyectos */
+    .projects-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .page-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .search-box {
+      position: relative;
+      flex: 1;
+      max-width: 500px;
+    }
+    
+    .search-box i {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6b7280;
+    }
+    
+    .search-box input {
+      width: 100%;
+      padding: 10px 15px 10px 40px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    
+    .btn-new-project {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    .btn-new-project:hover {
+      background-color: #2563eb;
+    }
+    .projects-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .projects-table th {
+      background-color: #f3f4f6;
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 600;
+      color: #4b5563;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .projects-table td {
+      padding: 14px 16px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 14px;
+      color: #1f2937;
+    }
+    
+    .projects-table tr:hover {
+      background-color: #f9fafb;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    
+    .status-pending {
+      background-color: #fef3c7;
+      color: #92400e;
+    }
+    
+    .status-in-progress {
+      background-color: #dbeafe;
+      color: #1e40af;
+    }
+    
+    .status-completed {
+      background-color: #dcfce7;
+      color: #166534;
+    }
+    
+    .status-cancelled {
+      background-color: #fee2e2;
+      color: #991b1b;
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .btn-icon {
+      padding: 6px;
+      border-radius: 4px;
+      background: none;
+      border: 1px solid #e5e7eb;
+      color: #4b5563;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .btn-icon:hover {
+      background-color: #f3f4f6;
+      color: #1f2937;
+    }
+    
+    .btn-edit {
+      color: #3b82f6;
+      border-color: #dbeafe;
+    }
+    
+    .btn-delete {
+      color: #ef4444;
+      border-color: #fee2e2;
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: #6b7280;
+    }
+    
+    .empty-state i {
+      font-size: 40px;
+      margin-bottom: 10px;
+      color: #d1d5db;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <!-- Barra de navegación -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <div class="navbar-logo">
+        <div class="navbar-logo-img"></div>
+        <span>Comintec</span>
+      </div>
+      
+      <div class="nav-menu" id="navMenu">
+        <!-- Menú de navegación -->
+        <div class="nav-menu-row">
+          <div class="nav-dropdown">
+            <a href="/html/main.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
+          </div>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-item active"><i class="fas fa-project-diagram"></i> Proyectos</a>
+          </div>
+          <!-- Otros elementos del menú según sea necesario -->
+        </div>
+      </div>
+      
+      <div class="user-menu">
+        <div class="notifications">
+          <button class="notification-btn">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">3</span>
+          </button>
+        </div>
+        <div class="user-profile">
+          <img src="https://ui-avatars.com/api/?name=Usuario&background=3b82f6&color=fff" alt="Usuario" class="user-avatar">
+          <span class="user-name">Usuario</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main class="main-content">
+    <div class="container">
+      <div class="page-actions">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Buscar proyectos...">
+        </div>
+        <button id="newProjectBtn" class="btn-new-project">
+          <i class="fas fa-plus"></i>
+          <span>Nuevo Proyecto</span>
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <table class="projects-table" id="projectsTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>CLIENTE</th>
+                <th>MONTO</th>
+                <th>ESTADO</th>
+                <th>ACCIONES</th>
+              </tr>
+            </thead>
+            <tbody id="projectsTbody">
+              <!-- Los proyectos se cargarán aquí dinámicamente -->
+              <tr>
+                <td colspan="6" class="empty-state">
+                  <i class="fas fa-inbox"></i>
+                  <p>No hay proyectos registrados</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </main>
+
+  <!-- Modal de Proyecto -->
+  <div class="modal" id="projectModal" style="display: none;">
+    <div class="modal-content" style="max-width: 800px;">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Nuevo Proyecto</h2>
+        <button class="close-btn" id="modalCloseBtn">&times;</button>
+      </div>
+      <form id="projectForm" class="universal-form">
+        <input type="hidden" id="projectId" />
+        
+        <div class="form-group">
+          <label for="projectName">Nombre del Proyecto *</label>
+          <input type="text" class="form-control" id="projectName" required 
+                 placeholder="Ej: Implementación Sistema de Gestión">
+        </div>
+        
+        <div class="form-group">
+          <label for="projectDescription">Descripción</label>
+          <textarea class="form-control" id="projectDescription" rows="3" 
+                    placeholder="Describe los detalles del proyecto"></textarea>
+        </div>
+        
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="projectClient">Cliente *</label>
+            <select class="form-control" id="projectClient" required>
+              <option value="">Seleccionar cliente...</option>
+              <option value="1">Cliente Ejemplo 1</option>
+              <option value="2">Cliente Ejemplo 2</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="projectStatus">Estado *</label>
+            <select class="form-control" id="projectStatus" required>
+              <option value="PENDING">Pendiente</option>
+              <option value="IN_PROGRESS">En Progreso</option>
+              <option value="COMPLETED">Completado</option>
+              <option value="CANCELLED">Cancelado</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="projectAmount">Monto Total *</label>
+            <div class="relative">
+              <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
+              <input type="number" step="0.01" class="form-control pl-8" id="projectAmount" 
+                     placeholder="0.00" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="projectCurrency">Moneda</label>
+            <select class="form-control" id="projectCurrency">
+              <option value="MXN">MXN - Peso Mexicano</option>
+              <option value="USD">USD - Dólar Americano</option>
+              <option value="EUR">EUR - Euro</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="projectStart">Fecha de Inicio</label>
+            <div class="relative">
+              <i class="fas fa-calendar-alt absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+              <input type="date" class="form-control pl-10" id="projectStart">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="projectEnd">Fecha de Término</label>
+            <div class="relative">
+              <i class="fas fa-calendar-alt absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+              <input type="date" class="form-control pl-10" id="projectEnd">
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="projectManager">Responsable del Proyecto</label>
+          <select class="form-control" id="projectManager">
+            <option value="">Seleccionar responsable...</option>
+            <option value="1">Juan Pérez</option>
+            <option value="2">María García</option>
+          </select>
+        </div>
+        
+        <div class="form-actions">
+          <button type="button" class="btn btn-outline-secondary" id="cancelBtn">
+            <i class="fas fa-times mr-2"></i>Cancelar
+          </button>
+          <button type="submit" class="btn btn-primary" id="saveProjectBtn">
+            <i class="fas fa-save mr-2"></i>Guardar Proyecto
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  </main>
+
+  <script src="/js/projects.js"></script>
+  <script>
+    // Inicialización del modal
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('projectModal');
+      const btnNewProject = document.getElementById('newProjectBtn');
+      const btnCloseModal = document.getElementById('modalCloseBtn');
+      const btnCancel = document.getElementById('cancelBtn');
+      
+      // Abrir modal
+      if (btnNewProject) {
+        btnNewProject.addEventListener('click', function() {
+          document.getElementById('modalTitle').textContent = 'Nuevo Proyecto';
+          document.getElementById('projectForm').reset();
+          modal.style.display = 'flex';
+        });
+      }
+      
+      // Cerrar modal
+      function closeModal() {
+        modal.style.display = 'none';
+      }
+      
+      if (btnCloseModal) btnCloseModal.addEventListener('click', closeModal);
+      if (btnCancel) btnCancel.addEventListener('click', closeModal);
+      
+      // Cerrar al hacer clic fuera del contenido del modal
+      window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
